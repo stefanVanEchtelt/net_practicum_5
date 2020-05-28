@@ -27,7 +27,18 @@ namespace practicum_5
 
         private void Login_Button_Click(object sender, RoutedEventArgs e)
         {
+            Buy BuyWindow = new Buy();
+            BuyWindow.Show();
 
+            this.Close();
+        }
+
+        private void To_Regsister(object sender, RoutedEventArgs e)
+        {
+            Register RegisterWindow = new Register();
+            RegisterWindow.Show();
+
+            this.Close();
         }
     }
 }

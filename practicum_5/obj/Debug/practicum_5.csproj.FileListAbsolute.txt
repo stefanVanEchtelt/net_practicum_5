@@ -20,3 +20,5 @@ C:\Users\Stefan\source\repos\practicum_5\practicum_5\bin\Debug\EntityFramework.S
 C:\Users\Stefan\source\repos\practicum_5\practicum_5\obj\Debug\Login.baml
 C:\Users\Stefan\source\repos\practicum_5\practicum_5\obj\Debug\Register.baml
 C:\Users\Stefan\source\repos\practicum_5\practicum_5\obj\Debug\practicum_5.csproj.CopyComplete
+C:\Users\Stefan\source\repos\practicum_5\practicum_5\obj\Debug\Buy.g.cs
+C:\Users\Stefan\source\repos\practicum_5\practicum_5\obj\Debug\Buy.baml
