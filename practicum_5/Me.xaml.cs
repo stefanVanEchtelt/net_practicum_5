@@ -15,27 +15,19 @@ using System.Windows.Shapes;
 namespace practicum_5
 {
     /// <summary>
-    /// Interaction logic for Register.xaml
+    /// Interaction logic for Me.xaml
     /// </summary>
-    public partial class Register : Window
+    public partial class Me : Window
     {
-        public Register()
+        public Me()
         {
             InitializeComponent();
         }
 
-        private void Register_Button_Click(object sender, RoutedEventArgs e)
+        private void To_Buy(object sender, RoutedEventArgs e)
         {
-            Login LoginWindow = new Login();
-            LoginWindow.Show();
-
-            this.Close();
-        }
-
-        private void To_Login(object sender, RoutedEventArgs e)
-        {
-            Login LoginWindow= new Login();
-            LoginWindow.Show();
+            Buy BuyWindow = new Buy();
+            BuyWindow.Show();
 
             this.Close();
         }

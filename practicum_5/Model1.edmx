@@ -1,0 +1,316 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="Model1StoreContainer">
+    <EntitySet Name="customerSet" EntityType="Model1.Store.customerSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="storeSet" EntityType="Model1.Store.storeSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="productSet" EntityType="Model1.Store.productSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="orderSet" EntityType="Model1.Store.orderSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="orderLineSet" EntityType="Model1.Store.orderLineSet" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="orderorderRegel" Association="Model1.Store.orderorderRegel">
+      <End Role="order" EntitySet="orderSet" />
+      <End Role="orderRegel" EntitySet="orderLineSet" />
+    </AssociationSet>
+    <AssociationSet Name="productorderRegel" Association="Model1.Store.productorderRegel">
+      <End Role="product" EntitySet="productSet" />
+      <End Role="orderRegel" EntitySet="orderLineSet" />
+    </AssociationSet>
+    <AssociationSet Name="winkelproduct" Association="Model1.Store.winkelproduct">
+      <End Role="winkel" EntitySet="storeSet" />
+      <End Role="product" EntitySet="productSet" />
+    </AssociationSet>
+    <AssociationSet Name="klantorder" Association="Model1.Store.klantorder">
+      <End Role="klant" EntitySet="customerSet" />
+      <End Role="order" EntitySet="orderSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="customerSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="balance" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="storeSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="productSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="price" Type="float" Nullable="false" />
+    <Property Name="stock" Type="int" Nullable="false" />
+    <Property Name="store_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="orderSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="date" Type="datetime" Nullable="false" />
+    <Property Name="customer_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="orderLineSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="amount" Type="int" Nullable="false" />
+    <Property Name="order_Id" Type="int" Nullable="false" />
+    <Property Name="product_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="orderorderRegel">
+    <End Role="order" Type="Model1.Store.orderSet" Multiplicity="1" />
+    <End Role="orderRegel" Type="Model1.Store.orderLineSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="order">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="orderRegel">
+        <PropertyRef Name="order_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="productorderRegel">
+    <End Role="product" Type="Model1.Store.productSet" Multiplicity="1" />
+    <End Role="orderRegel" Type="Model1.Store.orderLineSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="orderRegel">
+        <PropertyRef Name="product_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="winkelproduct">
+    <End Role="winkel" Type="Model1.Store.storeSet" Multiplicity="1" />
+    <End Role="product" Type="Model1.Store.productSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="winkel">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="product">
+        <PropertyRef Name="store_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="klantorder">
+    <End Role="klant" Type="Model1.Store.customerSet" Multiplicity="1" />
+    <End Role="order" Type="Model1.Store.orderSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="klant">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="order">
+        <PropertyRef Name="customer_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="customerSet" EntityType="Model1.customer" />
+          <EntitySet Name="storeSet" EntityType="Model1.store" />
+          <EntitySet Name="productSet" EntityType="Model1.product" />
+          <EntitySet Name="orderSet" EntityType="Model1.order" />
+          <EntitySet Name="orderLineSet" EntityType="Model1.orderLine" />
+          <AssociationSet Name="orderorderRegel" Association="Model1.orderorderRegel">
+            <End Role="order" EntitySet="orderSet" />
+            <End Role="orderRegel" EntitySet="orderLineSet" />
+          </AssociationSet>
+          <AssociationSet Name="productorderRegel" Association="Model1.productorderRegel">
+            <End Role="product" EntitySet="productSet" />
+            <End Role="orderRegel" EntitySet="orderLineSet" />
+          </AssociationSet>
+          <AssociationSet Name="winkelproduct" Association="Model1.winkelproduct">
+            <End Role="winkel" EntitySet="storeSet" />
+            <End Role="product" EntitySet="productSet" />
+          </AssociationSet>
+          <AssociationSet Name="klantorder" Association="Model1.klantorder">
+            <End Role="klant" EntitySet="customerSet" />
+            <End Role="order" EntitySet="orderSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="customer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" Nullable="false" />
+          <Property Name="password" Type="String" Nullable="false" />
+          <Property Name="balance" Type="Double" Nullable="false" />
+          <NavigationProperty Name="order" Relationship="Model1.klantorder" FromRole="klant" ToRole="order" />
+        </EntityType>
+        <EntityType Name="store">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" />
+          <NavigationProperty Name="product" Relationship="Model1.winkelproduct" FromRole="winkel" ToRole="product" />
+        </EntityType>
+        <EntityType Name="product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" />
+          <Property Name="price" Type="Double" Nullable="false" />
+          <Property Name="stock" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="orderLines" Relationship="Model1.productorderRegel" FromRole="product" ToRole="orderRegel" />
+          <NavigationProperty Name="store" Relationship="Model1.winkelproduct" FromRole="product" ToRole="winkel" />
+        </EntityType>
+        <EntityType Name="order">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="date" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="orderLines" Relationship="Model1.orderorderRegel" FromRole="order" ToRole="orderRegel" />
+          <NavigationProperty Name="customer" Relationship="Model1.klantorder" FromRole="order" ToRole="klant" />
+        </EntityType>
+        <EntityType Name="orderLine">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="amount" Type="Int32" Nullable="false" ConcurrencyMode="None" />
+          <NavigationProperty Name="order" Relationship="Model1.orderorderRegel" FromRole="orderRegel" ToRole="order" />
+          <NavigationProperty Name="product" Relationship="Model1.productorderRegel" FromRole="orderRegel" ToRole="product" />
+        </EntityType>
+        <Association Name="orderorderRegel">
+          <End Type="Model1.order" Role="order" Multiplicity="1" />
+          <End Type="Model1.orderLine" Role="orderRegel" Multiplicity="*" />
+        </Association>
+        <Association Name="productorderRegel">
+          <End Type="Model1.product" Role="product" Multiplicity="1" />
+          <End Type="Model1.orderLine" Role="orderRegel" Multiplicity="*" />
+        </Association>
+        <Association Name="winkelproduct">
+          <End Type="Model1.store" Role="winkel" Multiplicity="1" />
+          <End Type="Model1.product" Role="product" Multiplicity="*" />
+        </Association>
+        <Association Name="klantorder">
+          <End Type="Model1.customer" Role="klant" Multiplicity="1" />
+          <End Type="Model1.order" Role="order" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Model1StoreContainer" CdmEntityContainer="Model1Container">
+    <EntitySetMapping Name="customerSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.customer)">
+        <MappingFragment StoreEntitySet="customerSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="balance" ColumnName="balance" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="storeSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.store)">
+        <MappingFragment StoreEntitySet="storeSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="productSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.product)">
+        <MappingFragment StoreEntitySet="productSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="stock" ColumnName="stock" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="orderSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.order)">
+        <MappingFragment StoreEntitySet="orderSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="date" ColumnName="date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="orderLineSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.orderLine)">
+        <MappingFragment StoreEntitySet="orderLineSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="orderorderRegel" TypeName="Model1.orderorderRegel" StoreEntitySet="orderLineSet">
+      <EndProperty Name="order">
+        <ScalarProperty Name="Id" ColumnName="order_Id" />
+      </EndProperty>
+      <EndProperty Name="orderRegel">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="productorderRegel" TypeName="Model1.productorderRegel" StoreEntitySet="orderLineSet">
+      <EndProperty Name="product">
+        <ScalarProperty Name="Id" ColumnName="product_Id" />
+      </EndProperty>
+      <EndProperty Name="orderRegel">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="winkelproduct" TypeName="Model1.winkelproduct" StoreEntitySet="productSet">
+      <EndProperty Name="winkel">
+        <ScalarProperty Name="Id" ColumnName="store_Id" />
+      </EndProperty>
+      <EndProperty Name="product">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="klantorder" TypeName="Model1.klantorder" StoreEntitySet="orderSet">
+      <EndProperty Name="klant">
+        <ScalarProperty Name="Id" ColumnName="customer_Id" />
+      </EndProperty>
+      <EndProperty Name="order">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

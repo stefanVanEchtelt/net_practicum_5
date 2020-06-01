@@ -23,5 +23,18 @@ namespace practicum_5
         {
             InitializeComponent();
         }
+
+        private void Click_Buy_Button(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void Click_Refresh_Button(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void To_Me(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
