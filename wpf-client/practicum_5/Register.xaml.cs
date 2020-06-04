@@ -1,5 +1,4 @@
-﻿using PasswordGenerator;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Remoting;
@@ -29,8 +28,6 @@ namespace practicum_5
 
         private void Register_Button_Click(object sender, RoutedEventArgs e)
         {
-            password.Text = generatePassword();
-            MessageBox.Show("Vergeet niet het wachtwoord!");
         }
 
         private void To_Login(object sender, RoutedEventArgs e)
@@ -38,11 +35,6 @@ namespace practicum_5
             Login LoginWindow= new Login();
             LoginWindow.Show();
             this.Close();
-        }
-
-        private string generatePassword() {
-            var pwd = new Password(16).IncludeLowercase().IncludeUppercase().IncludeSpecial();
-            return pwd.Next().ToString();
         }
     }
 }
