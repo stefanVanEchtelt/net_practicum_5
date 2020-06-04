@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="prac5_dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="customerSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="balance" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="orderLineSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="amount" Type="int" Nullable="false" />
+    <Property Name="order_Id" Type="int" Nullable="false" />
+    <Property Name="product_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="orderSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="date" Type="datetime" Nullable="false" />
+    <Property Name="customer_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="productSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="price" Type="float" Nullable="false" />
+    <Property Name="stock" Type="int" Nullable="false" />
+    <Property Name="store_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="storeSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_klantorder">
+    <End Role="customerSet" Type="Self.customerSet" Multiplicity="1" />
+    <End Role="orderSet" Type="Self.orderSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customerSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="orderSet">
+        <PropertyRef Name="customer_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_orderorderRegel">
+    <End Role="orderSet" Type="Self.orderSet" Multiplicity="1" />
+    <End Role="orderLineSet" Type="Self.orderLineSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="orderSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="orderLineSet">
+        <PropertyRef Name="order_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_productorderRegel">
+    <End Role="productSet" Type="Self.productSet" Multiplicity="1" />
+    <End Role="orderLineSet" Type="Self.orderLineSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="productSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="orderLineSet">
+        <PropertyRef Name="product_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_winkelproduct">
+    <End Role="storeSet" Type="Self.storeSet" Multiplicity="1" />
+    <End Role="productSet" Type="Self.productSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="storeSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="productSet">
+        <PropertyRef Name="store_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="prac5_dbModelStoreContainer">
+    <EntitySet Name="customerSet" EntityType="Self.customerSet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="orderLineSet" EntityType="Self.orderLineSet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="orderSet" EntityType="Self.orderSet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="productSet" EntityType="Self.productSet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="storeSet" EntityType="Self.storeSet" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_klantorder" Association="Self.FK_klantorder">
+      <End Role="customerSet" EntitySet="customerSet" />
+      <End Role="orderSet" EntitySet="orderSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_orderorderRegel" Association="Self.FK_orderorderRegel">
+      <End Role="orderSet" EntitySet="orderSet" />
+      <End Role="orderLineSet" EntitySet="orderLineSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_productorderRegel" Association="Self.FK_productorderRegel">
+      <End Role="productSet" EntitySet="productSet" />
+      <End Role="orderLineSet" EntitySet="orderLineSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_winkelproduct" Association="Self.FK_winkelproduct">
+      <End Role="storeSet" EntitySet="storeSet" />
+      <End Role="productSet" EntitySet="productSet" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
