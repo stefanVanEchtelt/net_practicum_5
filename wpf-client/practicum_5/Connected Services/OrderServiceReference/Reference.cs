@@ -15,9 +15,9 @@ namespace practicum_5.OrderServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="BoughtProduct", Namespace="http://schemas.datacontract.org/2004/07/prak5_service_lib")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BuyingProduct", Namespace="http://schemas.datacontract.org/2004/07/prak5_service_lib")]
     [System.SerializableAttribute()]
-    public partial class BoughtProduct : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class BuyingProduct : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -79,10 +79,10 @@ namespace practicum_5.OrderServiceReference {
     public interface IOrderService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderService/Order", ReplyAction="http://tempuri.org/IOrderService/OrderResponse")]
-        double Order(int customerId, int storeId, practicum_5.OrderServiceReference.BoughtProduct[] products);
+        bool Order(int customerId, int storeId, practicum_5.OrderServiceReference.BuyingProduct[] products);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderService/Order", ReplyAction="http://tempuri.org/IOrderService/OrderResponse")]
-        System.Threading.Tasks.Task<double> OrderAsync(int customerId, int storeId, practicum_5.OrderServiceReference.BoughtProduct[] products);
+        System.Threading.Tasks.Task<bool> OrderAsync(int customerId, int storeId, practicum_5.OrderServiceReference.BuyingProduct[] products);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -112,11 +112,11 @@ namespace practicum_5.OrderServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public double Order(int customerId, int storeId, practicum_5.OrderServiceReference.BoughtProduct[] products) {
+        public bool Order(int customerId, int storeId, practicum_5.OrderServiceReference.BuyingProduct[] products) {
             return base.Channel.Order(customerId, storeId, products);
         }
         
-        public System.Threading.Tasks.Task<double> OrderAsync(int customerId, int storeId, practicum_5.OrderServiceReference.BoughtProduct[] products) {
+        public System.Threading.Tasks.Task<bool> OrderAsync(int customerId, int storeId, practicum_5.OrderServiceReference.BuyingProduct[] products) {
             return base.Channel.OrderAsync(customerId, storeId, products);
         }
     }

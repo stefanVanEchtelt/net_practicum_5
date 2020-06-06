@@ -70,3 +70,5 @@ C:\Users\Stefan\source\repos\practicum_5\wpf-client\practicum_5\obj\Debug\practi
 C:\Users\Stefan\source\repos\practicum_5\wpf-client\practicum_5\obj\Debug\practicum_5.Properties.Resources.resources
 C:\Users\Stefan\source\repos\practicum_5\wpf-client\practicum_5\obj\Debug\practicum_5.csproj.GenerateResource.cache
 C:\Users\Stefan\source\repos\practicum_5\wpf-client\practicum_5\obj\Debug\practicum_5.csproj.CoreCompileInputs.cache
+C:\Users\Stefan\source\repos\practicum_5\wpf-client\practicum_5\obj\Debug\BoughtProducts.g.cs
+C:\Users\Stefan\source\repos\practicum_5\wpf-client\practicum_5\obj\Debug\BoughtProducts.baml

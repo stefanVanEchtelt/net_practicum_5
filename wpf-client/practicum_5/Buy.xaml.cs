@@ -38,9 +38,8 @@ namespace practicum_5
             {
                 ListBoxItem Item = new ListBoxItem
                 {
-                    Content = product.Name + ": \u20AC" + Math.Truncate(product.Price * 100) / 100,
+                    Content = product.Name + ": \u20AC" + Math.Truncate(product.Price * 100) / 100 + " Vooraad: " + product.Stock,
                     DataContext = product.Id
-                    
                 };
 
                 ProductBox.Items.Add(Item);
@@ -103,16 +102,16 @@ namespace practicum_5
             // TODO Handel error messages
             // TODO store id?
 
-            List<BoughtProduct> boughtProducts = (
+            List<BuyingProduct> BuyingProducts = (
                     from bp in InventoryBox.Items.Cast<ListBoxItem>()
-                    select new BoughtProduct
+                    select new BuyingProduct
                     {
                         Id = int.Parse(bp.DataContext.ToString()),
                         Amount = int.Parse(bp.Content.ToString().Split(',').Last().Trim())
                     }
                 ).ToList();
 
-            OrderServiceProxy.Order(1, 1, boughtProducts.ToArray());
+            OrderServiceProxy.Order(1, 1, BuyingProducts.ToArray());
 
             InventoryBox.Items.Clear();
             this.loadProducts();

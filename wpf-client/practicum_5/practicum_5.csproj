@@ -61,8 +61,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BoughtProducts.xaml.cs">
+      <DependentUpon>BoughtProducts.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Buy.xaml.cs">
       <DependentUpon>Buy.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\OrderLineServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Connected Services\OrderServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -86,6 +94,10 @@
     <Compile Include="Register.xaml.cs">
       <DependentUpon>Register.xaml</DependentUpon>
     </Compile>
+    <Page Include="BoughtProducts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Buy.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -129,6 +141,19 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Connected Services\OrderLineServiceReference\practicum_5.OrderLineServiceReference.BoughtProduct.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\OrderLineServiceReference\prak5_service_lib.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\OrderLineServiceReference\service.wsdl" />
+    <None Include="Connected Services\OrderLineServiceReference\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\OrderLineServiceReference\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\OrderServiceReference\prak5_service_lib.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -181,6 +206,7 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\OrderLineServiceReference\" />
     <WCFMetadataStorage Include="Connected Services\OrderServiceReference\" />
     <WCFMetadataStorage Include="Connected Services\ProductServiceReference\" />
     <WCFMetadataStorage Include="Connected Services\ServiceReference1\" />
@@ -217,6 +243,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\OrderServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\OrderLineServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\OrderLineServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\OrderLineServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

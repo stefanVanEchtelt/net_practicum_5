@@ -12,11 +12,11 @@ namespace prak5_service_lib
     public interface IOrderService
     {
         [OperationContract]
-        double Order(int customerId, int storeId, List<BoughtProduct> products);
+        bool Order(int customerId, int storeId, List<BuyingProduct> products);
     }
 
     [DataContract]
-    public class BoughtProduct
+    public class BuyingProduct
     {
         [DataMember]
         public int Id { get; set; }

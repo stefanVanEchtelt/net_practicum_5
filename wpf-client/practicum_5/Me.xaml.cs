@@ -23,11 +23,18 @@ namespace practicum_5
         {
             InitializeComponent();
         }
-
+        
         private void To_Buy(object sender, RoutedEventArgs e)
         {
             Buy BuyWindow = new Buy();
             BuyWindow.Show();
+
+            this.Close();
+        }
+        private void To_Bought_Products(object sender, RoutedEventArgs e)
+        {
+            BoughtProducts BoughtProductsWindow = new BoughtProducts();
+            BoughtProductsWindow.Show();
 
             this.Close();
         }

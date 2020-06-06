@@ -1,0 +1,20 @@
+﻿<Window x:Class="practicum_5.BoughtProducts"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:practicum_5"
+        mc:Ignorable="d"
+        Title="BoughtProducts" Height="450" Width="800">
+    <Grid>
+        <DataGrid Name="BoughtProductsGrid" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="248" Margin="55,84,0,0" VerticalAlignment="Top" Width="650">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="500" Header="Name" Binding="{Binding Name}"/>
+                <DataGridTextColumn Width="150" Header="Amount" Binding="{Binding Amount}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    
+        <Label Content="Gekochten producten" HorizontalAlignment="Left" Margin="55,53,0,0" VerticalAlignment="Top"/>
+        <Button Content="Terug" HorizontalAlignment="Left" Margin="55,368,0,0" VerticalAlignment="Top" Width="75" Click="To_Me"/>
+    </Grid>
+</Window>

@@ -11,7 +11,7 @@ namespace prak5_service_lib
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "OrderService" in both code and config file together.
     public class OrderService : IOrderService
     {
-        public double Order(int customerId, int storeId, List<BoughtProduct> products)
+        public bool Order(int customerId, int storeId, List<BuyingProduct> products)
         {
             orderSet Order = new orderSet {
                 customer_Id = customerId,
@@ -57,7 +57,7 @@ namespace prak5_service_lib
                 db.customerSets.AddOrUpdate(customer);
                 orderSet SavedOrder = db.orderSets.Add(Order);
 
-                foreach (BoughtProduct bp in products)
+                foreach (BuyingProduct bp in products)
                 {
                     productSet product = (from p in db.productSets
                                            where p.Id == bp.Id
@@ -80,7 +80,7 @@ namespace prak5_service_lib
                 db.SaveChanges();
             }
 
-            return 999;
+            return true;
         }
     }
 }
