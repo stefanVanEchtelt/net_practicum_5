@@ -23,10 +23,9 @@ namespace practicum_5
         {
             InitializeComponent();
 
-            /*ProductServiceReference.ProductServiceClient ProductServiceProxy = new ProductServiceReference.ProductServiceClient();
-            Product[] products = ProductServiceProxy.All();*/
-
             OrderLineServiceReference.OrderLineServiceClient OrderLineServiceProxy = new OrderLineServiceReference.OrderLineServiceClient();
+
+            // TODO set real customer id
             BoughtProductsGrid.ItemsSource = OrderLineServiceProxy.PerProductByCustomer(1);
         }
 

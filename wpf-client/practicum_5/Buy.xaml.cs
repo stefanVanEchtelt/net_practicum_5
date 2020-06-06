@@ -25,10 +25,10 @@ namespace practicum_5
         public Buy()
         {
             InitializeComponent();
-            this.loadProducts();
+            this.LoadProducts();
         }
 
-        private void loadProducts()
+        private void LoadProducts()
         {
             ProductBox.Items.Clear();
             ProductServiceReference.ProductServiceClient ProductServiceProxy = new ProductServiceReference.ProductServiceClient();
@@ -114,14 +114,14 @@ namespace practicum_5
             OrderServiceProxy.Order(1, 1, BuyingProducts.ToArray());
 
             InventoryBox.Items.Clear();
-            this.loadProducts();
+            this.LoadProducts();
 
             MessageBox.Show("U order is ingeschoten.");
         }
 
         private void Click_Refresh_Button(object sender, RoutedEventArgs e)
         {
-            this.loadProducts();
+            this.LoadProducts();
         }
 
         private void To_Me(object sender, RoutedEventArgs e)
