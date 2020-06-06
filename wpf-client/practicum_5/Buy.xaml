@@ -7,14 +7,15 @@
         mc:Ignorable="d"
         Title="Buy" Height="450" Width="800">
     <Grid>
-        <ListBox HorizontalAlignment="Left" Height="230" Margin="100,77,0,0" VerticalAlignment="Top" Width="200"/>
-        <ListBox Height="230" Margin="491,77,100,0" Width="200" VerticalAlignment="Top"/>
+        <ListBox MouseDoubleClick="RemoveFromInventory" Name="InventoryBox" HorizontalAlignment="Left" Height="230" Margin="100,77,0,0" VerticalAlignment="Top" Width="200"/>
+        <ListBox MouseDoubleClick="AddToInventory" Name="ProductBox" Height="230" Margin="491,77,100,0" Width="200" VerticalAlignment="Top"/>
         <Label Content="Inventory" HorizontalAlignment="Left" Margin="100,51,0,0" VerticalAlignment="Top"/>
         <Label Content="Producten" HorizontalAlignment="Left" Margin="492,51,0,0" VerticalAlignment="Top"/>
 
         <Button Content="Kopen" HorizontalAlignment="Left" Height="25" Margin="673,372,0,0" VerticalAlignment="Top" Width="75" Click="Click_Buy_Button"/>
         <Button Content="Refresh" HorizontalAlignment="Left" Height="25" Margin="576,372,0,0" VerticalAlignment="Top" Width="75" Click="Click_Refresh_Button"/>
         <Button Content="Mijn profiel" HorizontalAlignment="Left" Height="25" Margin="673,20,0,0" VerticalAlignment="Top" Width="75" Click="To_Me"/>
+        <Label Name="BalanceLabel" Content="Balance: TODO" HorizontalAlignment="Left" Margin="100,312,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.079,0.077"/>
 
     </Grid>
 </Window>

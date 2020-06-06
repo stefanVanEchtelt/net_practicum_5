@@ -17,6 +17,7 @@ namespace prak5_service_lib {
         }
 
         public customerSet registerCustomer(string newUsername, string newPassword) {
+
             // TODO check if use exists
             var newCustomer = new customerSet {
                 username = newUsername,
@@ -25,7 +26,9 @@ namespace prak5_service_lib {
             };
 
             using (prac5_dbEntities db = new prac5_dbEntities()) {
-                return db.customerSets.Add(newCustomer);  
+                customerSet customer = db.customerSets.Add(newCustomer);
+                db.SaveChanges();
+                return customer;
             }
         }
     }

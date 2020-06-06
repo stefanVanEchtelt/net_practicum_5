@@ -4,48 +4,48 @@
     <EntitySetMapping Name="customerSets">
       <EntityTypeMapping TypeName="prac5_dbModel.customerSet">
         <MappingFragment StoreEntitySet="customerSet">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="username" ColumnName="username" />
-          <ScalarProperty Name="password" ColumnName="password" />
           <ScalarProperty Name="balance" ColumnName="balance" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="orderLineSets">
       <EntityTypeMapping TypeName="prac5_dbModel.orderLineSet">
         <MappingFragment StoreEntitySet="orderLineSet">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="amount" ColumnName="amount" />
-          <ScalarProperty Name="order_Id" ColumnName="order_Id" />
           <ScalarProperty Name="product_Id" ColumnName="product_Id" />
+          <ScalarProperty Name="order_Id" ColumnName="order_Id" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="orderSets">
       <EntityTypeMapping TypeName="prac5_dbModel.orderSet">
         <MappingFragment StoreEntitySet="orderSet">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="date" ColumnName="date" />
           <ScalarProperty Name="customer_Id" ColumnName="customer_Id" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="productSets">
       <EntityTypeMapping TypeName="prac5_dbModel.productSet">
         <MappingFragment StoreEntitySet="productSet">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="price" ColumnName="price" />
-          <ScalarProperty Name="stock" ColumnName="stock" />
           <ScalarProperty Name="store_Id" ColumnName="store_Id" />
+          <ScalarProperty Name="stock" ColumnName="stock" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="storeSets">
       <EntityTypeMapping TypeName="prac5_dbModel.storeSet">
         <MappingFragment StoreEntitySet="storeSet">
-          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

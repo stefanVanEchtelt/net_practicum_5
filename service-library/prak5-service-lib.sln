@@ -5,6 +5,11 @@ VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "prak5-service-lib", "prak5-service-lib\prak5-service-lib.csproj", "{3337AEA2-23F8-4363-8009-74B93450B0EC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "practicum_5", "..\wpf-client\practicum_5\practicum_5.csproj", "{F9038FED-BAA5-4491-8A55-7AE5D949AD4B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3337AEA2-23F8-4363-8009-74B93450B0EC} = {3337AEA2-23F8-4363-8009-74B93450B0EC}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +20,10 @@ Global
 		{3337AEA2-23F8-4363-8009-74B93450B0EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3337AEA2-23F8-4363-8009-74B93450B0EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3337AEA2-23F8-4363-8009-74B93450B0EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9038FED-BAA5-4491-8A55-7AE5D949AD4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9038FED-BAA5-4491-8A55-7AE5D949AD4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9038FED-BAA5-4491-8A55-7AE5D949AD4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9038FED-BAA5-4491-8A55-7AE5D949AD4B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

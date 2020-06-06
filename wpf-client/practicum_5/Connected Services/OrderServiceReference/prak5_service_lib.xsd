@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/prak5_service_lib" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/prak5_service_lib" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfBoughtProduct">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BoughtProduct" nillable="true" type="tns:BoughtProduct" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBoughtProduct" nillable="true" type="tns:ArrayOfBoughtProduct" />
+  <xs:complexType name="BoughtProduct">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Amount" type="xs:int" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BoughtProduct" nillable="true" type="tns:BoughtProduct" />
+</xs:schema>

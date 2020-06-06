@@ -1,14 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="prac5_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="prac5_dbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="customerSets" EntityType="prac5_dbModel.customerSet" />
+    <EntitySet Name="orderLineSets" EntityType="prac5_dbModel.orderLineSet" />
+    <EntitySet Name="orderSets" EntityType="prac5_dbModel.orderSet" />
+    <EntitySet Name="productSets" EntityType="prac5_dbModel.productSet" />
+    <EntitySet Name="storeSets" EntityType="prac5_dbModel.storeSet" />
+    <AssociationSet Name="FK_klantorder" Association="prac5_dbModel.FK_klantorder">
+      <End Role="customerSet" EntitySet="customerSets" />
+      <End Role="orderSet" EntitySet="orderSets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_orderorderRegel" Association="prac5_dbModel.FK_orderorderRegel">
+      <End Role="orderSet" EntitySet="orderSets" />
+      <End Role="orderLineSet" EntitySet="orderLineSets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_productorderRegel" Association="prac5_dbModel.FK_productorderRegel">
+      <End Role="productSet" EntitySet="productSets" />
+      <End Role="orderLineSet" EntitySet="orderLineSets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_winkelproduct" Association="prac5_dbModel.FK_winkelproduct">
+      <End Role="storeSet" EntitySet="storeSets" />
+      <End Role="productSet" EntitySet="productSets" />
+    </AssociationSet>
+  </EntityContainer>
   <EntityType Name="customerSet">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="username" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="username" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="balance" Type="Double" Nullable="false" />
-    <NavigationProperty Name="orderSets" Relationship="Self.FK_klantorder" FromRole="customerSet" ToRole="orderSet" />
+    <NavigationProperty Name="orderSets" Relationship="prac5_dbModel.FK_klantorder" FromRole="customerSet" ToRole="orderSet" />
   </EntityType>
   <EntityType Name="orderLineSet">
     <Key>
@@ -18,8 +41,8 @@
     <Property Name="amount" Type="Int32" Nullable="false" />
     <Property Name="order_Id" Type="Int32" Nullable="false" />
     <Property Name="product_Id" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="orderSet" Relationship="Self.FK_orderorderRegel" FromRole="orderLineSet" ToRole="orderSet" />
-    <NavigationProperty Name="productSet" Relationship="Self.FK_productorderRegel" FromRole="orderLineSet" ToRole="productSet" />
+    <NavigationProperty Name="orderSet" Relationship="prac5_dbModel.FK_orderorderRegel" FromRole="orderLineSet" ToRole="orderSet" />
+    <NavigationProperty Name="productSet" Relationship="prac5_dbModel.FK_productorderRegel" FromRole="orderLineSet" ToRole="productSet" />
   </EntityType>
   <EntityType Name="orderSet">
     <Key>
@@ -28,32 +51,32 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="date" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="customer_Id" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="customerSet" Relationship="Self.FK_klantorder" FromRole="orderSet" ToRole="customerSet" />
-    <NavigationProperty Name="orderLineSets" Relationship="Self.FK_orderorderRegel" FromRole="orderSet" ToRole="orderLineSet" />
+    <NavigationProperty Name="customerSet" Relationship="prac5_dbModel.FK_klantorder" FromRole="orderSet" ToRole="customerSet" />
+    <NavigationProperty Name="orderLineSets" Relationship="prac5_dbModel.FK_orderorderRegel" FromRole="orderSet" ToRole="orderLineSet" />
   </EntityType>
   <EntityType Name="productSet">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="price" Type="Double" Nullable="false" />
     <Property Name="stock" Type="Int32" Nullable="false" />
     <Property Name="store_Id" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="orderLineSets" Relationship="Self.FK_productorderRegel" FromRole="productSet" ToRole="orderLineSet" />
-    <NavigationProperty Name="storeSet" Relationship="Self.FK_winkelproduct" FromRole="productSet" ToRole="storeSet" />
+    <NavigationProperty Name="orderLineSets" Relationship="prac5_dbModel.FK_productorderRegel" FromRole="productSet" ToRole="orderLineSet" />
+    <NavigationProperty Name="storeSet" Relationship="prac5_dbModel.FK_winkelproduct" FromRole="productSet" ToRole="storeSet" />
   </EntityType>
   <EntityType Name="storeSet">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="productSets" Relationship="Self.FK_winkelproduct" FromRole="storeSet" ToRole="productSet" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="productSets" Relationship="prac5_dbModel.FK_winkelproduct" FromRole="storeSet" ToRole="productSet" />
   </EntityType>
   <Association Name="FK_klantorder">
-    <End Role="customerSet" Type="Self.customerSet" Multiplicity="1" />
-    <End Role="orderSet" Type="Self.orderSet" Multiplicity="*" />
+    <End Type="prac5_dbModel.customerSet" Role="customerSet" Multiplicity="1" />
+    <End Type="prac5_dbModel.orderSet" Role="orderSet" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="customerSet">
         <PropertyRef Name="Id" />
@@ -64,8 +87,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_orderorderRegel">
-    <End Role="orderSet" Type="Self.orderSet" Multiplicity="1" />
-    <End Role="orderLineSet" Type="Self.orderLineSet" Multiplicity="*" />
+    <End Type="prac5_dbModel.orderSet" Role="orderSet" Multiplicity="1" />
+    <End Type="prac5_dbModel.orderLineSet" Role="orderLineSet" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="orderSet">
         <PropertyRef Name="Id" />
@@ -76,8 +99,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_productorderRegel">
-    <End Role="productSet" Type="Self.productSet" Multiplicity="1" />
-    <End Role="orderLineSet" Type="Self.orderLineSet" Multiplicity="*" />
+    <End Type="prac5_dbModel.productSet" Role="productSet" Multiplicity="1" />
+    <End Type="prac5_dbModel.orderLineSet" Role="orderLineSet" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="productSet">
         <PropertyRef Name="Id" />
@@ -88,8 +111,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_winkelproduct">
-    <End Role="storeSet" Type="Self.storeSet" Multiplicity="1" />
-    <End Role="productSet" Type="Self.productSet" Multiplicity="*" />
+    <End Type="prac5_dbModel.storeSet" Role="storeSet" Multiplicity="1" />
+    <End Type="prac5_dbModel.productSet" Role="productSet" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="storeSet">
         <PropertyRef Name="Id" />
@@ -99,27 +122,4 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="prac5_dbEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="customerSets" EntityType="Self.customerSet" />
-    <EntitySet Name="orderLineSets" EntityType="Self.orderLineSet" />
-    <EntitySet Name="orderSets" EntityType="Self.orderSet" />
-    <EntitySet Name="productSets" EntityType="Self.productSet" />
-    <EntitySet Name="storeSets" EntityType="Self.storeSet" />
-    <AssociationSet Name="FK_klantorder" Association="Self.FK_klantorder">
-      <End Role="customerSet" EntitySet="customerSets" />
-      <End Role="orderSet" EntitySet="orderSets" />
-    </AssociationSet>
-    <AssociationSet Name="FK_orderorderRegel" Association="Self.FK_orderorderRegel">
-      <End Role="orderSet" EntitySet="orderSets" />
-      <End Role="orderLineSet" EntitySet="orderLineSets" />
-    </AssociationSet>
-    <AssociationSet Name="FK_productorderRegel" Association="Self.FK_productorderRegel">
-      <End Role="productSet" EntitySet="productSets" />
-      <End Role="orderLineSet" EntitySet="orderLineSets" />
-    </AssociationSet>
-    <AssociationSet Name="FK_winkelproduct" Association="Self.FK_winkelproduct">
-      <End Role="storeSet" EntitySet="storeSets" />
-      <End Role="productSet" EntitySet="productSets" />
-    </AssociationSet>
-  </EntityContainer>
 </Schema>
