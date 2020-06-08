@@ -121,7 +121,6 @@ namespace practicum_5
             OrderServiceReference.OrderServiceClient OrderServiceProxy = new OrderServiceReference.OrderServiceClient();
 
             // TODO get current customer ID
-            // TODO Handel error messages
 
             List<BuyingProduct> BuyingProducts = (
                     from bp in InventoryBox.Items.Cast<ListBoxItem>()
@@ -139,10 +138,10 @@ namespace practicum_5
             catch (FaultException<MyServiceFault> exception)
             {
                 MessageBox.Show(exception.Detail.Message);
+                return;
             }
 
-
-                InventoryBox.Items.Clear();
+            InventoryBox.Items.Clear();
             this.LoadProducts();
 
             MessageBox.Show("U order is ingeschoten.");
