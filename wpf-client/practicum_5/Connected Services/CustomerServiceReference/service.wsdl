@@ -25,12 +25,6 @@
   <wsdl:message name="ICustomerService_Find_OutputMessage">
     <wsdl:part name="parameters" element="tns:FindResponse" />
   </wsdl:message>
-  <wsdl:message name="ICustomerService_Authorise_InputMessage">
-    <wsdl:part name="parameters" element="tns:Authorise" />
-  </wsdl:message>
-  <wsdl:message name="ICustomerService_Authorise_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AuthoriseResponse" />
-  </wsdl:message>
   <wsdl:portType name="ICustomerService">
     <wsdl:operation name="RegisterCustomer">
       <wsdl:input wsaw:Action="http://tempuri.org/ICustomerService/RegisterCustomer" message="tns:ICustomerService_RegisterCustomer_InputMessage" />
@@ -43,10 +37,6 @@
     <wsdl:operation name="Find">
       <wsdl:input wsaw:Action="http://tempuri.org/ICustomerService/Find" message="tns:ICustomerService_Find_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICustomerService/FindResponse" message="tns:ICustomerService_Find_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="Authorise">
-      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerService/Authorise" message="tns:ICustomerService_Authorise_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerService/AuthoriseResponse" message="tns:ICustomerService_Authorise_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ICustomerService" type="tns:ICustomerService">
@@ -71,15 +61,6 @@
     </wsdl:operation>
     <wsdl:operation name="Find">
       <soap:operation soapAction="http://tempuri.org/ICustomerService/Find" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Authorise">
-      <soap:operation soapAction="http://tempuri.org/ICustomerService/Authorise" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

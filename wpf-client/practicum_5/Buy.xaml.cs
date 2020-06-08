@@ -121,8 +121,6 @@ namespace practicum_5
         {
             OrderServiceReference.OrderServiceClient OrderServiceProxy = new OrderServiceReference.OrderServiceClient();
 
-            // TODO Handel error messages
-
             List<BuyingProduct> BuyingProducts = (
                     from bp in InventoryBox.Items.Cast<ListBoxItem>()
                     select new BuyingProduct

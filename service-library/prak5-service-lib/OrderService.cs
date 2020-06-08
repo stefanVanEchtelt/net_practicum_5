@@ -41,13 +41,11 @@ namespace prak5_service_lib
                     ).First() - p2.Amount
                 ).Min();
 
-                if (lowestStock < 0)
-                {
+                if (lowestStock < 0) {
                     throw new FaultException<MyServiceFault>(new MyServiceFault("Not enough Stok"));
                 }
 
-                if (price > customer.balance)
-                {
+                if (price > customer.balance) {
                     throw new FaultException<MyServiceFault>(new MyServiceFault("Not enough balance to pay for this."));
                 }
 

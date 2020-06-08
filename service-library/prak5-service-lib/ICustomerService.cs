@@ -7,14 +7,15 @@ using System.Text;
 
 namespace prak5_service_lib
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "ICustomerService" in both code and config file together.
     [ServiceContract]
     public interface ICustomerService
     {
         [OperationContract]
+        [FaultContract(typeof(CustomerFaultService))]
         Customer RegisterCustomer(string username);
 
         [OperationContract]
+        [FaultContract(typeof(CustomerFaultService))]
         Customer LoginCustomer(string username, string password);
 
         [OperationContract]
@@ -35,5 +36,19 @@ namespace prak5_service_lib
 
         [DataMember]
         public string Password { get; set; }
+    }
+
+    [DataContract]
+    public class CustomerFaultService
+    {
+        private string _message;
+
+        public CustomerFaultService(string message)
+        {
+            _message = message;
+        }
+
+        [DataMember]
+        public string Message { get { return _message; } set { _message = value; } }
     }
 }

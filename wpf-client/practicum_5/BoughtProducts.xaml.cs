@@ -24,8 +24,6 @@ namespace practicum_5
             InitializeComponent();
 
             OrderLineServiceReference.OrderLineServiceClient OrderLineServiceProxy = new OrderLineServiceReference.OrderLineServiceClient();
-
-            // TODO set real customer id
             int customerId = Int16.Parse(Application.Current.Resources["CUSTOMER_ID"].ToString());
             BoughtProductsGrid.ItemsSource = OrderLineServiceProxy.PerProductByCustomer(customerId);
         }

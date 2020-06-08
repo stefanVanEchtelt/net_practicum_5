@@ -127,12 +127,6 @@ namespace practicum_5.CustomerServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/Find", ReplyAction="http://tempuri.org/ICustomerService/FindResponse")]
         System.Threading.Tasks.Task<practicum_5.CustomerServiceReference.Customer> FindAsync(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/Authorise", ReplyAction="http://tempuri.org/ICustomerService/AuthoriseResponse")]
-        bool Authorise(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/Authorise", ReplyAction="http://tempuri.org/ICustomerService/AuthoriseResponse")]
-        System.Threading.Tasks.Task<bool> AuthoriseAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -184,14 +178,6 @@ namespace practicum_5.CustomerServiceReference {
         
         public System.Threading.Tasks.Task<practicum_5.CustomerServiceReference.Customer> FindAsync(int id) {
             return base.Channel.FindAsync(id);
-        }
-        
-        public bool Authorise(int id) {
-            return base.Channel.Authorise(id);
-        }
-        
-        public System.Threading.Tasks.Task<bool> AuthoriseAsync(int id) {
-            return base.Channel.AuthoriseAsync(id);
         }
     }
 }
