@@ -12,13 +12,16 @@ namespace prak5_service_lib
     public interface ICustomerService
     {
         [OperationContract]
-        Customer registerCustomer(string username);
+        Customer RegisterCustomer(string username);
 
         [OperationContract]
-        Customer loginCustomer(string username, string password);
+        Customer LoginCustomer(string username, string password);
 
         [OperationContract]
         Customer Find(int id);
+
+        [OperationContract]
+        Boolean Authorise(int id);
     }
 
     [DataContract]

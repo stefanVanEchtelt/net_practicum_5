@@ -27,25 +27,16 @@ namespace practicum_5
 
         private void Register_Button_Click(object sender, RoutedEventArgs e) {
             CustomerServiceClient CustomerServiceClient = new CustomerServiceClient();
-            Customer newCustomer = CustomerServiceClient.registerCustomer(username.Text);
+            Customer newCustomer = CustomerServiceClient.RegisterCustomer(username.Text);
 
             password.Text = newCustomer.Password;
             MessageBox.Show("Vergeet niet het wachtwoord op te slaan!");
         }
 
         private void To_Login(object sender, RoutedEventArgs e) {
-
-            CustomerServiceClient CustomerServiceClient = new CustomerServiceClient();
-            Customer newCustomer = CustomerServiceClient.loginCustomer(username.Text, password.Text);
-            Console.WriteLine(newCustomer);
-            if (!newCustomer.Equals(null)) {
                 Login LoginWindow = new Login();
                 LoginWindow.Show();
                 this.Close();
-            } else {
-                MessageBox.Show("Foute login");
-            }
-
         }
     }
 }
