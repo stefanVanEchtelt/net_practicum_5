@@ -3,8 +3,8 @@
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import namespace="http://tempuri.org/" />
-      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/prak5_service_lib" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="ICustomerService_RegisterCustomer_InputMessage">
@@ -13,11 +13,17 @@
   <wsdl:message name="ICustomerService_RegisterCustomer_OutputMessage">
     <wsdl:part name="parameters" element="tns:RegisterCustomerResponse" />
   </wsdl:message>
+  <wsdl:message name="ICustomerService_RegisterCustomer_CustomerFaultServiceFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/prak5_service_lib" name="detail" element="q1:CustomerFaultService" />
+  </wsdl:message>
   <wsdl:message name="ICustomerService_LoginCustomer_InputMessage">
     <wsdl:part name="parameters" element="tns:LoginCustomer" />
   </wsdl:message>
   <wsdl:message name="ICustomerService_LoginCustomer_OutputMessage">
     <wsdl:part name="parameters" element="tns:LoginCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerService_LoginCustomer_CustomerFaultServiceFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/prak5_service_lib" name="detail" element="q2:CustomerFaultService" />
   </wsdl:message>
   <wsdl:message name="ICustomerService_Find_InputMessage">
     <wsdl:part name="parameters" element="tns:Find" />
@@ -25,28 +31,20 @@
   <wsdl:message name="ICustomerService_Find_OutputMessage">
     <wsdl:part name="parameters" element="tns:FindResponse" />
   </wsdl:message>
-  <wsdl:message name="ICustomerService_Authorise_InputMessage">
-    <wsdl:part name="parameters" element="tns:Authorise" />
-  </wsdl:message>
-  <wsdl:message name="ICustomerService_Authorise_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AuthoriseResponse" />
-  </wsdl:message>
   <wsdl:portType name="ICustomerService">
     <wsdl:operation name="RegisterCustomer">
       <wsdl:input wsaw:Action="http://tempuri.org/ICustomerService/RegisterCustomer" message="tns:ICustomerService_RegisterCustomer_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICustomerService/RegisterCustomerResponse" message="tns:ICustomerService_RegisterCustomer_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICustomerService/RegisterCustomerCustomerFaultServiceFault" name="CustomerFaultServiceFault" message="tns:ICustomerService_RegisterCustomer_CustomerFaultServiceFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="LoginCustomer">
       <wsdl:input wsaw:Action="http://tempuri.org/ICustomerService/LoginCustomer" message="tns:ICustomerService_LoginCustomer_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICustomerService/LoginCustomerResponse" message="tns:ICustomerService_LoginCustomer_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICustomerService/LoginCustomerCustomerFaultServiceFault" name="CustomerFaultServiceFault" message="tns:ICustomerService_LoginCustomer_CustomerFaultServiceFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="Find">
       <wsdl:input wsaw:Action="http://tempuri.org/ICustomerService/Find" message="tns:ICustomerService_Find_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICustomerService/FindResponse" message="tns:ICustomerService_Find_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="Authorise">
-      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerService/Authorise" message="tns:ICustomerService_Authorise_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerService/AuthoriseResponse" message="tns:ICustomerService_Authorise_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ICustomerService" type="tns:ICustomerService">
@@ -59,6 +57,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="CustomerFaultServiceFault">
+        <soap:fault use="literal" name="CustomerFaultServiceFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="LoginCustomer">
       <soap:operation soapAction="http://tempuri.org/ICustomerService/LoginCustomer" style="document" />
@@ -68,18 +69,12 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="CustomerFaultServiceFault">
+        <soap:fault use="literal" name="CustomerFaultServiceFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="Find">
       <soap:operation soapAction="http://tempuri.org/ICustomerService/Find" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Authorise">
-      <soap:operation soapAction="http://tempuri.org/ICustomerService/Authorise" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

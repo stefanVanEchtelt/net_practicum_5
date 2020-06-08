@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel.Channels;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -31,13 +32,13 @@ namespace practicum_5
 
             CustomerServiceClient CustomerServiceClient = new CustomerServiceClient();
             Customer newCustomer = CustomerServiceClient.LoginCustomer(username.Text, password.Text);
-            Console.WriteLine(newCustomer);
-            if (!newCustomer.Equals(null))
+            if (newCustomer !=null)
             {
-                Buy BuyWindow = new Buy();
-                BuyWindow.Show();
+                Application.Current.Resources["CUSTOMER_ID"] = newCustomer.Id;
 
+                Buy BuyWindow = new Buy();
                 this.Close();
+                BuyWindow.Show();
             }
             else
             {

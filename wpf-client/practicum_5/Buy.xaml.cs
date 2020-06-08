@@ -1,4 +1,5 @@
-﻿using practicum_5.OrderServiceReference;
+﻿using practicum_5.CustomerServiceReference;
+using practicum_5.OrderServiceReference;
 using practicum_5.ProductServiceReference;
 using System;
 using System.Collections.Generic;
@@ -60,8 +61,8 @@ namespace practicum_5
                 price += product.Price * int.Parse(item.Content.ToString().Split(',').Last().Trim());
             }
 
-            // TODO customer id change
-            RemainingBalance.Content = customerServiceProxy.Find(1).Balance - price;
+            int customerId = Int16.Parse(Application.Current.Resources["CUSTOMER_ID"].ToString());
+            RemainingBalance.Content = customerServiceProxy.Find(customerId).Balance - price;
         }
 
         private void AddToInventory(object sender, RoutedEventArgs e)
@@ -120,8 +121,6 @@ namespace practicum_5
         {
             OrderServiceReference.OrderServiceClient OrderServiceProxy = new OrderServiceReference.OrderServiceClient();
 
-            // TODO get current customer ID
-
             List<BuyingProduct> BuyingProducts = (
                     from bp in InventoryBox.Items.Cast<ListBoxItem>()
                     select new BuyingProduct
@@ -133,9 +132,10 @@ namespace practicum_5
 
             try
             {
-                OrderServiceProxy.Order(1, 1, BuyingProducts.ToArray());
+                int customerId = Int16.Parse(Application.Current.Resources["CUSTOMER_ID"].ToString());
+                OrderServiceProxy.Order(customerId, 1, BuyingProducts.ToArray());
             }
-            catch (FaultException<MyServiceFault> exception)
+            catch (FaultException<OrderServiceFault> exception)
             {
                 MessageBox.Show(exception.Detail.Message);
                 return;
@@ -144,7 +144,7 @@ namespace practicum_5
             InventoryBox.Items.Clear();
             this.LoadProducts();
 
-            MessageBox.Show("U order is ingeschoten.");
+            MessageBox.Show("U order is bevestigd.");
         }
 
         private void Click_Refresh_Button(object sender, RoutedEventArgs e)

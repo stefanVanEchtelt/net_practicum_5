@@ -106,17 +106,64 @@ namespace practicum_5.CustomerServiceReference {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CustomerFaultService", Namespace="http://schemas.datacontract.org/2004/07/prak5_service_lib")]
+    [System.SerializableAttribute()]
+    public partial class CustomerFaultService : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MessageField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Message {
+            get {
+                return this.MessageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MessageField, value) != true)) {
+                    this.MessageField = value;
+                    this.RaisePropertyChanged("Message");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="CustomerServiceReference.ICustomerService")]
     public interface ICustomerService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/RegisterCustomer", ReplyAction="http://tempuri.org/ICustomerService/RegisterCustomerResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(practicum_5.CustomerServiceReference.CustomerFaultService), Action="http://tempuri.org/ICustomerService/RegisterCustomerCustomerFaultServiceFault", Name="CustomerFaultService", Namespace="http://schemas.datacontract.org/2004/07/prak5_service_lib")]
         practicum_5.CustomerServiceReference.Customer RegisterCustomer(string username);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/RegisterCustomer", ReplyAction="http://tempuri.org/ICustomerService/RegisterCustomerResponse")]
         System.Threading.Tasks.Task<practicum_5.CustomerServiceReference.Customer> RegisterCustomerAsync(string username);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/LoginCustomer", ReplyAction="http://tempuri.org/ICustomerService/LoginCustomerResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(practicum_5.CustomerServiceReference.CustomerFaultService), Action="http://tempuri.org/ICustomerService/LoginCustomerCustomerFaultServiceFault", Name="CustomerFaultService", Namespace="http://schemas.datacontract.org/2004/07/prak5_service_lib")]
         practicum_5.CustomerServiceReference.Customer LoginCustomer(string username, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/LoginCustomer", ReplyAction="http://tempuri.org/ICustomerService/LoginCustomerResponse")]
@@ -127,12 +174,6 @@ namespace practicum_5.CustomerServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/Find", ReplyAction="http://tempuri.org/ICustomerService/FindResponse")]
         System.Threading.Tasks.Task<practicum_5.CustomerServiceReference.Customer> FindAsync(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/Authorise", ReplyAction="http://tempuri.org/ICustomerService/AuthoriseResponse")]
-        bool Authorise(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/Authorise", ReplyAction="http://tempuri.org/ICustomerService/AuthoriseResponse")]
-        System.Threading.Tasks.Task<bool> AuthoriseAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -184,14 +225,6 @@ namespace practicum_5.CustomerServiceReference {
         
         public System.Threading.Tasks.Task<practicum_5.CustomerServiceReference.Customer> FindAsync(int id) {
             return base.Channel.FindAsync(id);
-        }
-        
-        public bool Authorise(int id) {
-            return base.Channel.Authorise(id);
-        }
-        
-        public System.Threading.Tasks.Task<bool> AuthoriseAsync(int id) {
-            return base.Channel.AuthoriseAsync(id);
         }
     }
 }

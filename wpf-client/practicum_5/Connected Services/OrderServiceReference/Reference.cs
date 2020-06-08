@@ -76,9 +76,9 @@ namespace practicum_5.OrderServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="MyServiceFault", Namespace="http://schemas.datacontract.org/2004/07/prak5_service_lib")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="OrderServiceFault", Namespace="http://schemas.datacontract.org/2004/07/prak5_service_lib")]
     [System.SerializableAttribute()]
-    public partial class MyServiceFault : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class OrderServiceFault : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -124,7 +124,7 @@ namespace practicum_5.OrderServiceReference {
     public interface IOrderService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderService/Order", ReplyAction="http://tempuri.org/IOrderService/OrderResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(practicum_5.OrderServiceReference.MyServiceFault), Action="http://tempuri.org/IOrderService/OrderMyServiceFaultFault", Name="MyServiceFault", Namespace="http://schemas.datacontract.org/2004/07/prak5_service_lib")]
+        [System.ServiceModel.FaultContractAttribute(typeof(practicum_5.OrderServiceReference.OrderServiceFault), Action="http://tempuri.org/IOrderService/OrderOrderServiceFaultFault", Name="OrderServiceFault", Namespace="http://schemas.datacontract.org/2004/07/prak5_service_lib")]
         bool Order(int customerId, int storeId, practicum_5.OrderServiceReference.BuyingProduct[] products);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderService/Order", ReplyAction="http://tempuri.org/IOrderService/OrderResponse")]

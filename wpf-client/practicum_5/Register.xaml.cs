@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Remoting;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -27,10 +28,18 @@ namespace practicum_5
 
         private void Register_Button_Click(object sender, RoutedEventArgs e) {
             CustomerServiceClient CustomerServiceClient = new CustomerServiceClient();
-            Customer newCustomer = CustomerServiceClient.RegisterCustomer(username.Text);
-
-            password.Text = newCustomer.Password;
-            MessageBox.Show("Vergeet niet het wachtwoord op te slaan!");
+            try
+            {
+                MessageBox.Show(UsernameField.Text);
+                Customer newCustomer = CustomerServiceClient.RegisterCustomer(UsernameField.Text);
+                password.Text = newCustomer.Password;
+                MessageBox.Show("Vergeet niet het wachtwoord op te slaan!");
+            }
+            catch (FaultException<CustomerFaultService> exception)
+            {
+                MessageBox.Show(exception.Detail.Message);
+                return;
+            }
         }
 
         private void To_Login(object sender, RoutedEventArgs e) {

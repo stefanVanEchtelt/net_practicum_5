@@ -13,14 +13,14 @@
   <wsdl:message name="IOrderService_Order_OutputMessage">
     <wsdl:part name="parameters" element="tns:OrderResponse" />
   </wsdl:message>
-  <wsdl:message name="IOrderService_Order_MyServiceFaultFault_FaultMessage">
-    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/prak5_service_lib" name="detail" element="q1:MyServiceFault" />
+  <wsdl:message name="IOrderService_Order_OrderServiceFaultFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/prak5_service_lib" name="detail" element="q1:OrderServiceFault" />
   </wsdl:message>
   <wsdl:portType name="IOrderService">
     <wsdl:operation name="Order">
       <wsdl:input wsaw:Action="http://tempuri.org/IOrderService/Order" message="tns:IOrderService_Order_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IOrderService/OrderResponse" message="tns:IOrderService_Order_OutputMessage" />
-      <wsdl:fault wsaw:Action="http://tempuri.org/IOrderService/OrderMyServiceFaultFault" name="MyServiceFaultFault" message="tns:IOrderService_Order_MyServiceFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IOrderService/OrderOrderServiceFaultFault" name="OrderServiceFaultFault" message="tns:IOrderService_Order_OrderServiceFaultFault_FaultMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IOrderService" type="tns:IOrderService">
@@ -33,8 +33,8 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
-      <wsdl:fault name="MyServiceFaultFault">
-        <soap:fault use="literal" name="MyServiceFaultFault" namespace="" />
+      <wsdl:fault name="OrderServiceFaultFault">
+        <soap:fault use="literal" name="OrderServiceFaultFault" namespace="" />
       </wsdl:fault>
     </wsdl:operation>
   </wsdl:binding>

@@ -12,7 +12,7 @@ namespace prak5_service_lib
     public interface IOrderService
     {
         [OperationContract]
-        [FaultContract(typeof(MyServiceFault))]
+        [FaultContract(typeof(OrderServiceFault))]
         bool Order(int customerId, int storeId, List<BuyingProduct> products);
     }
 
@@ -28,11 +28,11 @@ namespace prak5_service_lib
     }
 
     [DataContract]
-    public class MyServiceFault
+    public class OrderServiceFault
     {
         private string _message;
 
-        public MyServiceFault(string message)
+        public OrderServiceFault(string message)
         {
             _message = message;
         }
