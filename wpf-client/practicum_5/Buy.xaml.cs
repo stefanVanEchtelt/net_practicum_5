@@ -26,6 +26,7 @@ namespace practicum_5
         {
             InitializeComponent();
             this.LoadProducts();
+            this.SetRemainingBalance();
         }
 
         private void LoadProducts()
@@ -44,7 +45,24 @@ namespace practicum_5
 
                 ProductBox.Items.Add(Item);
             }
-        } 
+        }
+
+        private void SetRemainingBalance()
+        {
+            ProductServiceReference.ProductServiceClient ProductServiceProxy = new ProductServiceReference.ProductServiceClient();
+            CustomerServiceReference.CustomerServiceClient customerServiceProxy = new CustomerServiceReference.CustomerServiceClient();
+
+            double price = 0;
+            foreach (ListBoxItem item in InventoryBox.Items)
+            {
+                Product product = ProductServiceProxy.Find(int.Parse(item.DataContext.ToString()));
+
+                price += product.Price * int.Parse(item.Content.ToString().Split(',').Last().Trim());
+            }
+
+            // TODO customer id change
+            RemainingBalance.Content = customerServiceProxy.Find(1).Balance - price;
+        }
 
         private void AddToInventory(object sender, RoutedEventArgs e)
         {
@@ -73,6 +91,8 @@ namespace practicum_5
 
                     InventoryBox.Items.Add(Item);
                 }
+
+                this.SetRemainingBalance();
             }
         }
 
@@ -91,6 +111,8 @@ namespace practicum_5
                     Product product = ProductServiceProxy.Find(int.Parse(selectedItem.DataContext.ToString()));
                     selectedItem.Content = product.Name + ", " + (int.Parse(selectedItem.Content.ToString().Split(',').Last().Trim()) - 1);
                 }
+
+                this.SetRemainingBalance();
             }
         }
 
@@ -100,7 +122,6 @@ namespace practicum_5
 
             // TODO get current customer ID
             // TODO Handel error messages
-            // TODO store id?
 
             List<BuyingProduct> BuyingProducts = (
                     from bp in InventoryBox.Items.Cast<ListBoxItem>()
@@ -111,9 +132,17 @@ namespace practicum_5
                     }
                 ).ToList();
 
-            OrderServiceProxy.Order(1, 1, BuyingProducts.ToArray());
+            try
+            {
+                OrderServiceProxy.Order(1, 1, BuyingProducts.ToArray());
+            }
+            catch (FaultException<MyServiceFault> exception)
+            {
+                MessageBox.Show(exception.Detail.Message);
+            }
 
-            InventoryBox.Items.Clear();
+
+                InventoryBox.Items.Clear();
             this.LoadProducts();
 
             MessageBox.Show("U order is ingeschoten.");

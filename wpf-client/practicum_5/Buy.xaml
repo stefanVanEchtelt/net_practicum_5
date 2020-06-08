@@ -15,6 +15,7 @@
         <Button Content="Kopen" HorizontalAlignment="Left" Height="25" Margin="673,372,0,0" VerticalAlignment="Top" Width="75" Click="Click_Buy_Button"/>
         <Button Content="Refresh" HorizontalAlignment="Left" Height="25" Margin="576,372,0,0" VerticalAlignment="Top" Width="75" Click="Click_Refresh_Button"/>
         <Button Content="Mijn profiel" HorizontalAlignment="Left" Height="25" Margin="673,20,0,0" VerticalAlignment="Top" Width="75" Click="To_Me"/>
-        <Label Name="BalanceLabel" Content="Money left: € TODO" HorizontalAlignment="Left" Margin="100,312,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.079,0.077"/>
+        <Label Name="BalanceLabel" Content="Money left: €" HorizontalAlignment="Left" Margin="100,312,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.079,0.077"/>
+        <Label Name="RemainingBalance" Content="" HorizontalAlignment="Left" Margin="184,312,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

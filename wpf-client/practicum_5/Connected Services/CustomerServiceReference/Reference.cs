@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace practicum_5.ServiceReference1 {
+namespace practicum_5.CustomerServiceReference {
     using System.Runtime.Serialization;
     using System;
     
@@ -29,7 +29,7 @@ namespace practicum_5.ServiceReference1 {
         private double balanceField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private practicum_5.ServiceReference1.orderSet[] orderSetsField;
+        private practicum_5.CustomerServiceReference.orderSet[] orderSetsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string passwordField;
@@ -74,7 +74,7 @@ namespace practicum_5.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public practicum_5.ServiceReference1.orderSet[] orderSets {
+        public practicum_5.CustomerServiceReference.orderSet[] orderSets {
             get {
                 return this.orderSetsField;
             }
@@ -135,7 +135,7 @@ namespace practicum_5.ServiceReference1 {
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private practicum_5.ServiceReference1.customerSet customerSetField;
+        private practicum_5.CustomerServiceReference.customerSet customerSetField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int customer_IdField;
@@ -144,7 +144,7 @@ namespace practicum_5.ServiceReference1 {
         private System.DateTime dateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private practicum_5.ServiceReference1.orderLineSet[] orderLineSetsField;
+        private practicum_5.CustomerServiceReference.orderLineSet[] orderLineSetsField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -170,7 +170,7 @@ namespace practicum_5.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public practicum_5.ServiceReference1.customerSet customerSet {
+        public practicum_5.CustomerServiceReference.customerSet customerSet {
             get {
                 return this.customerSetField;
             }
@@ -209,7 +209,7 @@ namespace practicum_5.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public practicum_5.ServiceReference1.orderLineSet[] orderLineSets {
+        public practicum_5.CustomerServiceReference.orderLineSet[] orderLineSets {
             get {
                 return this.orderLineSetsField;
             }
@@ -247,13 +247,13 @@ namespace practicum_5.ServiceReference1 {
         private int amountField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private practicum_5.ServiceReference1.orderSet orderSetField;
+        private practicum_5.CustomerServiceReference.orderSet orderSetField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int order_IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private practicum_5.ServiceReference1.productSet productSetField;
+        private practicum_5.CustomerServiceReference.productSet productSetField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int product_IdField;
@@ -295,7 +295,7 @@ namespace practicum_5.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public practicum_5.ServiceReference1.orderSet orderSet {
+        public practicum_5.CustomerServiceReference.orderSet orderSet {
             get {
                 return this.orderSetField;
             }
@@ -321,7 +321,7 @@ namespace practicum_5.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public practicum_5.ServiceReference1.productSet productSet {
+        public practicum_5.CustomerServiceReference.productSet productSet {
             get {
                 return this.productSetField;
             }
@@ -372,7 +372,7 @@ namespace practicum_5.ServiceReference1 {
         private string nameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private practicum_5.ServiceReference1.orderLineSet[] orderLineSetsField;
+        private practicum_5.CustomerServiceReference.orderLineSet[] orderLineSetsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double priceField;
@@ -381,7 +381,7 @@ namespace practicum_5.ServiceReference1 {
         private int stockField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private practicum_5.ServiceReference1.storeSet storeSetField;
+        private practicum_5.CustomerServiceReference.storeSet storeSetField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int store_IdField;
@@ -423,7 +423,7 @@ namespace practicum_5.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public practicum_5.ServiceReference1.orderLineSet[] orderLineSets {
+        public practicum_5.CustomerServiceReference.orderLineSet[] orderLineSets {
             get {
                 return this.orderLineSetsField;
             }
@@ -462,7 +462,7 @@ namespace practicum_5.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public practicum_5.ServiceReference1.storeSet storeSet {
+        public practicum_5.CustomerServiceReference.storeSet storeSet {
             get {
                 return this.storeSetField;
             }
@@ -513,7 +513,7 @@ namespace practicum_5.ServiceReference1 {
         private string nameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private practicum_5.ServiceReference1.productSet[] productSetsField;
+        private practicum_5.CustomerServiceReference.productSet[] productSetsField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -552,7 +552,7 @@ namespace practicum_5.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public practicum_5.ServiceReference1.productSet[] productSets {
+        public practicum_5.CustomerServiceReference.productSet[] productSets {
             get {
                 return this.productSetsField;
             }
@@ -574,30 +574,113 @@ namespace practicum_5.ServiceReference1 {
         }
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.ICustomerService")]
-    public interface ICustomerService {
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Customer", Namespace="http://schemas.datacontract.org/2004/07/prak5_service_lib")]
+    [System.SerializableAttribute()]
+    public partial class Customer : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/registerCustomer", ReplyAction="http://tempuri.org/ICustomerService/registerCustomerResponse")]
-        practicum_5.ServiceReference1.customerSet registerCustomer(string username, string password);
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/registerCustomer", ReplyAction="http://tempuri.org/ICustomerService/registerCustomerResponse")]
-        System.Threading.Tasks.Task<practicum_5.ServiceReference1.customerSet> registerCustomerAsync(string username, string password);
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double BalanceField;
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/loginCustomer", ReplyAction="http://tempuri.org/ICustomerService/loginCustomerResponse")]
-        practicum_5.ServiceReference1.customerSet loginCustomer(string username, string password);
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/loginCustomer", ReplyAction="http://tempuri.org/ICustomerService/loginCustomerResponse")]
-        System.Threading.Tasks.Task<practicum_5.ServiceReference1.customerSet> loginCustomerAsync(string username, string password);
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UserNameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Balance {
+            get {
+                return this.BalanceField;
+            }
+            set {
+                if ((this.BalanceField.Equals(value) != true)) {
+                    this.BalanceField = value;
+                    this.RaisePropertyChanged("Balance");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UserName {
+            get {
+                return this.UserNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UserNameField, value) != true)) {
+                    this.UserNameField = value;
+                    this.RaisePropertyChanged("UserName");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface ICustomerServiceChannel : practicum_5.ServiceReference1.ICustomerService, System.ServiceModel.IClientChannel {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="CustomerServiceReference.ICustomerService")]
+    public interface ICustomerService {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/registerCustomer", ReplyAction="http://tempuri.org/ICustomerService/registerCustomerResponse")]
+        practicum_5.CustomerServiceReference.customerSet registerCustomer(string username, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/registerCustomer", ReplyAction="http://tempuri.org/ICustomerService/registerCustomerResponse")]
+        System.Threading.Tasks.Task<practicum_5.CustomerServiceReference.customerSet> registerCustomerAsync(string username, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/loginCustomer", ReplyAction="http://tempuri.org/ICustomerService/loginCustomerResponse")]
+        practicum_5.CustomerServiceReference.customerSet loginCustomer(string username, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/loginCustomer", ReplyAction="http://tempuri.org/ICustomerService/loginCustomerResponse")]
+        System.Threading.Tasks.Task<practicum_5.CustomerServiceReference.customerSet> loginCustomerAsync(string username, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/Find", ReplyAction="http://tempuri.org/ICustomerService/FindResponse")]
+        practicum_5.CustomerServiceReference.Customer Find(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/Find", ReplyAction="http://tempuri.org/ICustomerService/FindResponse")]
+        System.Threading.Tasks.Task<practicum_5.CustomerServiceReference.Customer> FindAsync(int id);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface ICustomerServiceChannel : practicum_5.CustomerServiceReference.ICustomerService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class CustomerServiceClient : System.ServiceModel.ClientBase<practicum_5.ServiceReference1.ICustomerService>, practicum_5.ServiceReference1.ICustomerService {
+    public partial class CustomerServiceClient : System.ServiceModel.ClientBase<practicum_5.CustomerServiceReference.ICustomerService>, practicum_5.CustomerServiceReference.ICustomerService {
         
         public CustomerServiceClient() {
         }
@@ -618,20 +701,28 @@ namespace practicum_5.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
-        public practicum_5.ServiceReference1.customerSet registerCustomer(string username, string password) {
+        public practicum_5.CustomerServiceReference.customerSet registerCustomer(string username, string password) {
             return base.Channel.registerCustomer(username, password);
         }
         
-        public System.Threading.Tasks.Task<practicum_5.ServiceReference1.customerSet> registerCustomerAsync(string username, string password) {
+        public System.Threading.Tasks.Task<practicum_5.CustomerServiceReference.customerSet> registerCustomerAsync(string username, string password) {
             return base.Channel.registerCustomerAsync(username, password);
         }
         
-        public practicum_5.ServiceReference1.customerSet loginCustomer(string username, string password) {
+        public practicum_5.CustomerServiceReference.customerSet loginCustomer(string username, string password) {
             return base.Channel.loginCustomer(username, password);
         }
         
-        public System.Threading.Tasks.Task<practicum_5.ServiceReference1.customerSet> loginCustomerAsync(string username, string password) {
+        public System.Threading.Tasks.Task<practicum_5.CustomerServiceReference.customerSet> loginCustomerAsync(string username, string password) {
             return base.Channel.loginCustomerAsync(username, password);
+        }
+        
+        public practicum_5.CustomerServiceReference.Customer Find(int id) {
+            return base.Channel.Find(id);
+        }
+        
+        public System.Threading.Tasks.Task<practicum_5.CustomerServiceReference.Customer> FindAsync(int id) {
+            return base.Channel.FindAsync(id);
         }
     }
 }

@@ -22,6 +22,10 @@ namespace practicum_5
         public Me()
         {
             InitializeComponent();
+            CustomerServiceReference.CustomerServiceClient customerServiceProxy = new CustomerServiceReference.CustomerServiceClient();
+
+            // TODO change to real ID
+            CurrentSaldo.Content = "Saldo : \u20AC " + customerServiceProxy.Find(1).Balance;
         }
         
         private void To_Buy(object sender, RoutedEventArgs e)

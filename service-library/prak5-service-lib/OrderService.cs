@@ -8,7 +8,6 @@ using System.Text;
 
 namespace prak5_service_lib
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "OrderService" in both code and config file together.
     public class OrderService : IOrderService
     {
         public bool Order(int customerId, int storeId, List<BuyingProduct> products)
@@ -44,12 +43,12 @@ namespace prak5_service_lib
 
                 if (lowestStock < 0)
                 {
-                    throw new Exception("Not enough Stok");
+                    throw new FaultException<MyServiceFault>(new MyServiceFault("Not enough Stok"));
                 }
 
                 if (price > customer.balance)
                 {
-                    throw new Exception("Not enough money to pay for this.");
+                    throw new FaultException<MyServiceFault>(new MyServiceFault("Not enough balance to pay for this."));
                 }
 
                 customer.balance -= price; 
