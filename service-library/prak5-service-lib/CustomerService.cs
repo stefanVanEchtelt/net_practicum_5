@@ -9,10 +9,19 @@ using System.Text;
 namespace prak5_service_lib {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "CustomerService" in both code and config file together.
     public class CustomerService : ICustomerService {
-        public customerSet loginCustomer(string username, string password) {
+        public Customer loginCustomer(string username, string password) {
             using (prac5_dbEntities db = new prac5_dbEntities()) {
-                var query = db.customerSets.Where(c => c.username == username && c.password == password).FirstOrDefault<customerSet>();
-                return query;
+
+                return (from c in db.customerSets
+                        where c.username == username
+                        && c.password == password
+                        select new Customer
+                        {
+                            Id = c.Id,
+                            UserName = c.username,
+                            Balance = c.balance,
+                            Password = c.password
+                        }).First();
             }
         }
 
