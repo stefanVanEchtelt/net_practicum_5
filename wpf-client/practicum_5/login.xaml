@@ -10,8 +10,8 @@
         <Button Content="Login" HorizontalAlignment="Left" Margin="335,306,0,0" VerticalAlignment="Top" Width="102" Click="Login_Button_Click" Height="30"/>
         <Label Content="Username" HorizontalAlignment="Left" Margin="254,104,0,0" VerticalAlignment="Top"/>
         <Label Content="Password" HorizontalAlignment="Left" Margin="254,188,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="254,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="239"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="254,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="239"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="254,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="239" Name="username"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="254,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="239" Name="password"/>
 
         <TextBlock HorizontalAlignment="Left" Margin="304,341,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
             Not registered yet? <Hyperlink Click="To_Regsister">Click here!</Hyperlink>

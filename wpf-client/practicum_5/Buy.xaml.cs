@@ -1,4 +1,5 @@
-﻿using practicum_5.OrderServiceReference;
+﻿using practicum_5.CustomerServiceReference;
+using practicum_5.OrderServiceReference;
 using practicum_5.ProductServiceReference;
 using System;
 using System.Collections.Generic;
@@ -61,7 +62,8 @@ namespace practicum_5
             }
 
             // TODO customer id change
-            RemainingBalance.Content = customerServiceProxy.Find(1).Balance - price;
+            string customerId = Application.Current.Resources["CUSTOMER_ID"].ToString();
+            RemainingBalance.Content = customerServiceProxy.Find(Int16.Parse(customerId)).Balance - price;
         }
 
         private void AddToInventory(object sender, RoutedEventArgs e)
@@ -145,7 +147,7 @@ namespace practicum_5
                 InventoryBox.Items.Clear();
             this.LoadProducts();
 
-            MessageBox.Show("U order is ingeschoten.");
+            MessageBox.Show("U order is bevestigd.");
         }
 
         private void Click_Refresh_Button(object sender, RoutedEventArgs e)

@@ -40,7 +40,7 @@ namespace prak5_service_lib {
             customerSet newCustomer = new customerSet {
                 username = newUsername,
                 password = newPassword,
-                balance = 20
+                balance = new Random().Next(5, 105)
             };
 
             using (prac5_dbEntities db = new prac5_dbEntities()) {

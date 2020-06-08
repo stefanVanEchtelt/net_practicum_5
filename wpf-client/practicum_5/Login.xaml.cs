@@ -32,12 +32,13 @@ namespace practicum_5
             CustomerServiceClient CustomerServiceClient = new CustomerServiceClient();
             Customer newCustomer = CustomerServiceClient.LoginCustomer(username.Text, password.Text);
             Console.WriteLine(newCustomer);
-            if (!newCustomer.Equals(null))
+            if (newCustomer !=null)
             {
-                Buy BuyWindow = new Buy();
-                BuyWindow.Show();
+                Application.Current.Resources["CUSTOMER_ID"] = newCustomer.Id;
 
+                Buy BuyWindow = new Buy();
                 this.Close();
+                BuyWindow.Show();
             }
             else
             {
