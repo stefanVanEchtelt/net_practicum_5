@@ -15,567 +15,6 @@ namespace practicum_5.CustomerServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="customerSet", Namespace="http://schemas.datacontract.org/2004/07/prak5_service_lib")]
-    [System.SerializableAttribute()]
-    public partial class customerSet : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double balanceField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private practicum_5.CustomerServiceReference.orderSet[] orderSetsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string passwordField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string usernameField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double balance {
-            get {
-                return this.balanceField;
-            }
-            set {
-                if ((this.balanceField.Equals(value) != true)) {
-                    this.balanceField = value;
-                    this.RaisePropertyChanged("balance");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public practicum_5.CustomerServiceReference.orderSet[] orderSets {
-            get {
-                return this.orderSetsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.orderSetsField, value) != true)) {
-                    this.orderSetsField = value;
-                    this.RaisePropertyChanged("orderSets");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string password {
-            get {
-                return this.passwordField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.passwordField, value) != true)) {
-                    this.passwordField = value;
-                    this.RaisePropertyChanged("password");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string username {
-            get {
-                return this.usernameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.usernameField, value) != true)) {
-                    this.usernameField = value;
-                    this.RaisePropertyChanged("username");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="orderSet", Namespace="http://schemas.datacontract.org/2004/07/prak5_service_lib")]
-    [System.SerializableAttribute()]
-    public partial class orderSet : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private practicum_5.CustomerServiceReference.customerSet customerSetField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int customer_IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime dateField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private practicum_5.CustomerServiceReference.orderLineSet[] orderLineSetsField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public practicum_5.CustomerServiceReference.customerSet customerSet {
-            get {
-                return this.customerSetField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.customerSetField, value) != true)) {
-                    this.customerSetField = value;
-                    this.RaisePropertyChanged("customerSet");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int customer_Id {
-            get {
-                return this.customer_IdField;
-            }
-            set {
-                if ((this.customer_IdField.Equals(value) != true)) {
-                    this.customer_IdField = value;
-                    this.RaisePropertyChanged("customer_Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime date {
-            get {
-                return this.dateField;
-            }
-            set {
-                if ((this.dateField.Equals(value) != true)) {
-                    this.dateField = value;
-                    this.RaisePropertyChanged("date");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public practicum_5.CustomerServiceReference.orderLineSet[] orderLineSets {
-            get {
-                return this.orderLineSetsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.orderLineSetsField, value) != true)) {
-                    this.orderLineSetsField = value;
-                    this.RaisePropertyChanged("orderLineSets");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="orderLineSet", Namespace="http://schemas.datacontract.org/2004/07/prak5_service_lib")]
-    [System.SerializableAttribute()]
-    public partial class orderLineSet : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int amountField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private practicum_5.CustomerServiceReference.orderSet orderSetField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int order_IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private practicum_5.CustomerServiceReference.productSet productSetField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int product_IdField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int amount {
-            get {
-                return this.amountField;
-            }
-            set {
-                if ((this.amountField.Equals(value) != true)) {
-                    this.amountField = value;
-                    this.RaisePropertyChanged("amount");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public practicum_5.CustomerServiceReference.orderSet orderSet {
-            get {
-                return this.orderSetField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.orderSetField, value) != true)) {
-                    this.orderSetField = value;
-                    this.RaisePropertyChanged("orderSet");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int order_Id {
-            get {
-                return this.order_IdField;
-            }
-            set {
-                if ((this.order_IdField.Equals(value) != true)) {
-                    this.order_IdField = value;
-                    this.RaisePropertyChanged("order_Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public practicum_5.CustomerServiceReference.productSet productSet {
-            get {
-                return this.productSetField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.productSetField, value) != true)) {
-                    this.productSetField = value;
-                    this.RaisePropertyChanged("productSet");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int product_Id {
-            get {
-                return this.product_IdField;
-            }
-            set {
-                if ((this.product_IdField.Equals(value) != true)) {
-                    this.product_IdField = value;
-                    this.RaisePropertyChanged("product_Id");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="productSet", Namespace="http://schemas.datacontract.org/2004/07/prak5_service_lib")]
-    [System.SerializableAttribute()]
-    public partial class productSet : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string nameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private practicum_5.CustomerServiceReference.orderLineSet[] orderLineSetsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double priceField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int stockField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private practicum_5.CustomerServiceReference.storeSet storeSetField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int store_IdField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string name {
-            get {
-                return this.nameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.nameField, value) != true)) {
-                    this.nameField = value;
-                    this.RaisePropertyChanged("name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public practicum_5.CustomerServiceReference.orderLineSet[] orderLineSets {
-            get {
-                return this.orderLineSetsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.orderLineSetsField, value) != true)) {
-                    this.orderLineSetsField = value;
-                    this.RaisePropertyChanged("orderLineSets");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double price {
-            get {
-                return this.priceField;
-            }
-            set {
-                if ((this.priceField.Equals(value) != true)) {
-                    this.priceField = value;
-                    this.RaisePropertyChanged("price");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int stock {
-            get {
-                return this.stockField;
-            }
-            set {
-                if ((this.stockField.Equals(value) != true)) {
-                    this.stockField = value;
-                    this.RaisePropertyChanged("stock");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public practicum_5.CustomerServiceReference.storeSet storeSet {
-            get {
-                return this.storeSetField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.storeSetField, value) != true)) {
-                    this.storeSetField = value;
-                    this.RaisePropertyChanged("storeSet");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int store_Id {
-            get {
-                return this.store_IdField;
-            }
-            set {
-                if ((this.store_IdField.Equals(value) != true)) {
-                    this.store_IdField = value;
-                    this.RaisePropertyChanged("store_Id");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="storeSet", Namespace="http://schemas.datacontract.org/2004/07/prak5_service_lib")]
-    [System.SerializableAttribute()]
-    public partial class storeSet : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string nameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private practicum_5.CustomerServiceReference.productSet[] productSetsField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string name {
-            get {
-                return this.nameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.nameField, value) != true)) {
-                    this.nameField = value;
-                    this.RaisePropertyChanged("name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public practicum_5.CustomerServiceReference.productSet[] productSets {
-            get {
-                return this.productSetsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.productSetsField, value) != true)) {
-                    this.productSetsField = value;
-                    this.RaisePropertyChanged("productSets");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Customer", Namespace="http://schemas.datacontract.org/2004/07/prak5_service_lib")]
     [System.SerializableAttribute()]
     public partial class Customer : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -588,6 +27,9 @@ namespace practicum_5.CustomerServiceReference {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PasswordField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string UserNameField;
@@ -629,6 +71,19 @@ namespace practicum_5.CustomerServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Password {
+            get {
+                return this.PasswordField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PasswordField, value) != true)) {
+                    this.PasswordField = value;
+                    this.RaisePropertyChanged("Password");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string UserName {
             get {
                 return this.UserNameField;
@@ -656,16 +111,16 @@ namespace practicum_5.CustomerServiceReference {
     public interface ICustomerService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/registerCustomer", ReplyAction="http://tempuri.org/ICustomerService/registerCustomerResponse")]
-        practicum_5.CustomerServiceReference.customerSet registerCustomer(string username, string password);
+        practicum_5.CustomerServiceReference.Customer registerCustomer(string username);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/registerCustomer", ReplyAction="http://tempuri.org/ICustomerService/registerCustomerResponse")]
-        System.Threading.Tasks.Task<practicum_5.CustomerServiceReference.customerSet> registerCustomerAsync(string username, string password);
+        System.Threading.Tasks.Task<practicum_5.CustomerServiceReference.Customer> registerCustomerAsync(string username);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/loginCustomer", ReplyAction="http://tempuri.org/ICustomerService/loginCustomerResponse")]
-        practicum_5.CustomerServiceReference.customerSet loginCustomer(string username, string password);
+        practicum_5.CustomerServiceReference.Customer loginCustomer(string username, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/loginCustomer", ReplyAction="http://tempuri.org/ICustomerService/loginCustomerResponse")]
-        System.Threading.Tasks.Task<practicum_5.CustomerServiceReference.customerSet> loginCustomerAsync(string username, string password);
+        System.Threading.Tasks.Task<practicum_5.CustomerServiceReference.Customer> loginCustomerAsync(string username, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/Find", ReplyAction="http://tempuri.org/ICustomerService/FindResponse")]
         practicum_5.CustomerServiceReference.Customer Find(int id);
@@ -701,19 +156,19 @@ namespace practicum_5.CustomerServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public practicum_5.CustomerServiceReference.customerSet registerCustomer(string username, string password) {
-            return base.Channel.registerCustomer(username, password);
+        public practicum_5.CustomerServiceReference.Customer registerCustomer(string username) {
+            return base.Channel.registerCustomer(username);
         }
         
-        public System.Threading.Tasks.Task<practicum_5.CustomerServiceReference.customerSet> registerCustomerAsync(string username, string password) {
-            return base.Channel.registerCustomerAsync(username, password);
+        public System.Threading.Tasks.Task<practicum_5.CustomerServiceReference.Customer> registerCustomerAsync(string username) {
+            return base.Channel.registerCustomerAsync(username);
         }
         
-        public practicum_5.CustomerServiceReference.customerSet loginCustomer(string username, string password) {
+        public practicum_5.CustomerServiceReference.Customer loginCustomer(string username, string password) {
             return base.Channel.loginCustomer(username, password);
         }
         
-        public System.Threading.Tasks.Task<practicum_5.CustomerServiceReference.customerSet> loginCustomerAsync(string username, string password) {
+        public System.Threading.Tasks.Task<practicum_5.CustomerServiceReference.Customer> loginCustomerAsync(string username, string password) {
             return base.Channel.loginCustomerAsync(username, password);
         }
         
