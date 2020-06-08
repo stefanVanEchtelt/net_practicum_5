@@ -10,7 +10,7 @@ using System.Text;
 namespace prak5_service_lib {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "CustomerService" in both code and config file together.
     public class CustomerService : ICustomerService {
-        public Customer loginCustomer(string username, string password) {
+        public Customer LoginCustomer(string username, string password) {
             using (prac5_dbEntities db = new prac5_dbEntities()) {
 
                 try {
@@ -32,7 +32,7 @@ namespace prak5_service_lib {
             }
         }
 
-        public Customer registerCustomer(string newUsername) {
+        public Customer RegisterCustomer(string newUsername) {
             var pwd = new Password().IncludeLowercase().IncludeUppercase().IncludeSpecial();
             var newPassword = pwd.Next();
 
@@ -68,6 +68,12 @@ namespace prak5_service_lib {
                             Balance = c.balance
                         }).First();
             }
+        }
+
+        public bool Authorise(int id)
+        {
+            // TODO make authorise logic here...
+            return true;
         }
     }
 }

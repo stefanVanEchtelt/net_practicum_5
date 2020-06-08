@@ -110,23 +110,29 @@ namespace practicum_5.CustomerServiceReference {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="CustomerServiceReference.ICustomerService")]
     public interface ICustomerService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/registerCustomer", ReplyAction="http://tempuri.org/ICustomerService/registerCustomerResponse")]
-        practicum_5.CustomerServiceReference.Customer registerCustomer(string username);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/RegisterCustomer", ReplyAction="http://tempuri.org/ICustomerService/RegisterCustomerResponse")]
+        practicum_5.CustomerServiceReference.Customer RegisterCustomer(string username);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/registerCustomer", ReplyAction="http://tempuri.org/ICustomerService/registerCustomerResponse")]
-        System.Threading.Tasks.Task<practicum_5.CustomerServiceReference.Customer> registerCustomerAsync(string username);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/RegisterCustomer", ReplyAction="http://tempuri.org/ICustomerService/RegisterCustomerResponse")]
+        System.Threading.Tasks.Task<practicum_5.CustomerServiceReference.Customer> RegisterCustomerAsync(string username);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/loginCustomer", ReplyAction="http://tempuri.org/ICustomerService/loginCustomerResponse")]
-        practicum_5.CustomerServiceReference.Customer loginCustomer(string username, string password);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/LoginCustomer", ReplyAction="http://tempuri.org/ICustomerService/LoginCustomerResponse")]
+        practicum_5.CustomerServiceReference.Customer LoginCustomer(string username, string password);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/loginCustomer", ReplyAction="http://tempuri.org/ICustomerService/loginCustomerResponse")]
-        System.Threading.Tasks.Task<practicum_5.CustomerServiceReference.Customer> loginCustomerAsync(string username, string password);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/LoginCustomer", ReplyAction="http://tempuri.org/ICustomerService/LoginCustomerResponse")]
+        System.Threading.Tasks.Task<practicum_5.CustomerServiceReference.Customer> LoginCustomerAsync(string username, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/Find", ReplyAction="http://tempuri.org/ICustomerService/FindResponse")]
         practicum_5.CustomerServiceReference.Customer Find(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/Find", ReplyAction="http://tempuri.org/ICustomerService/FindResponse")]
         System.Threading.Tasks.Task<practicum_5.CustomerServiceReference.Customer> FindAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/Authorise", ReplyAction="http://tempuri.org/ICustomerService/AuthoriseResponse")]
+        bool Authorise(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/Authorise", ReplyAction="http://tempuri.org/ICustomerService/AuthoriseResponse")]
+        System.Threading.Tasks.Task<bool> AuthoriseAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -156,20 +162,20 @@ namespace practicum_5.CustomerServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public practicum_5.CustomerServiceReference.Customer registerCustomer(string username) {
-            return base.Channel.registerCustomer(username);
+        public practicum_5.CustomerServiceReference.Customer RegisterCustomer(string username) {
+            return base.Channel.RegisterCustomer(username);
         }
         
-        public System.Threading.Tasks.Task<practicum_5.CustomerServiceReference.Customer> registerCustomerAsync(string username) {
-            return base.Channel.registerCustomerAsync(username);
+        public System.Threading.Tasks.Task<practicum_5.CustomerServiceReference.Customer> RegisterCustomerAsync(string username) {
+            return base.Channel.RegisterCustomerAsync(username);
         }
         
-        public practicum_5.CustomerServiceReference.Customer loginCustomer(string username, string password) {
-            return base.Channel.loginCustomer(username, password);
+        public practicum_5.CustomerServiceReference.Customer LoginCustomer(string username, string password) {
+            return base.Channel.LoginCustomer(username, password);
         }
         
-        public System.Threading.Tasks.Task<practicum_5.CustomerServiceReference.Customer> loginCustomerAsync(string username, string password) {
-            return base.Channel.loginCustomerAsync(username, password);
+        public System.Threading.Tasks.Task<practicum_5.CustomerServiceReference.Customer> LoginCustomerAsync(string username, string password) {
+            return base.Channel.LoginCustomerAsync(username, password);
         }
         
         public practicum_5.CustomerServiceReference.Customer Find(int id) {
@@ -178,6 +184,14 @@ namespace practicum_5.CustomerServiceReference {
         
         public System.Threading.Tasks.Task<practicum_5.CustomerServiceReference.Customer> FindAsync(int id) {
             return base.Channel.FindAsync(id);
+        }
+        
+        public bool Authorise(int id) {
+            return base.Channel.Authorise(id);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AuthoriseAsync(int id) {
+            return base.Channel.AuthoriseAsync(id);
         }
     }
 }

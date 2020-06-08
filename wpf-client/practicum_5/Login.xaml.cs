@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using practicum_5.CustomerServiceReference;
 
 namespace practicum_5
 {
@@ -27,10 +28,21 @@ namespace practicum_5
 
         private void Login_Button_Click(object sender, RoutedEventArgs e)
         {
-            Buy BuyWindow = new Buy();
-            BuyWindow.Show();
 
-            this.Close();
+            CustomerServiceClient CustomerServiceClient = new CustomerServiceClient();
+            Customer newCustomer = CustomerServiceClient.LoginCustomer(username.Text, password.Text);
+            Console.WriteLine(newCustomer);
+            if (!newCustomer.Equals(null))
+            {
+                Buy BuyWindow = new Buy();
+                BuyWindow.Show();
+
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Foute login");
+            }
         }
 
         private void To_Regsister(object sender, RoutedEventArgs e)
