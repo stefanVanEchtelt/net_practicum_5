@@ -61,9 +61,8 @@ namespace practicum_5
                 price += product.Price * int.Parse(item.Content.ToString().Split(',').Last().Trim());
             }
 
-            // TODO customer id change
-            string customerId = Application.Current.Resources["CUSTOMER_ID"].ToString();
-            RemainingBalance.Content = customerServiceProxy.Find(Int16.Parse(customerId)).Balance - price;
+            int customerId = Int16.Parse(Application.Current.Resources["CUSTOMER_ID"].ToString());
+            RemainingBalance.Content = customerServiceProxy.Find(customerId).Balance - price;
         }
 
         private void AddToInventory(object sender, RoutedEventArgs e)
@@ -122,7 +121,6 @@ namespace practicum_5
         {
             OrderServiceReference.OrderServiceClient OrderServiceProxy = new OrderServiceReference.OrderServiceClient();
 
-            // TODO get current customer ID
             // TODO Handel error messages
 
             List<BuyingProduct> BuyingProducts = (
@@ -136,7 +134,8 @@ namespace practicum_5
 
             try
             {
-                OrderServiceProxy.Order(1, 1, BuyingProducts.ToArray());
+                int customerId = Int16.Parse(Application.Current.Resources["CUSTOMER_ID"].ToString());
+                OrderServiceProxy.Order(customerId, 1, BuyingProducts.ToArray());
             }
             catch (FaultException<MyServiceFault> exception)
             {

@@ -19,9 +19,6 @@ namespace prak5_service_lib
 
         [OperationContract]
         Customer Find(int id);
-
-        [OperationContract]
-        Boolean Authorise(int id);
     }
 
     [DataContract]

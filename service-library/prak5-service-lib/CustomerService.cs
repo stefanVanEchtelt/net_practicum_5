@@ -35,8 +35,8 @@ namespace prak5_service_lib {
         public Customer RegisterCustomer(string newUsername) {
             var pwd = new Password().IncludeLowercase().IncludeUppercase().IncludeSpecial();
             var newPassword = pwd.Next();
-
             // TODO check if customer exists / create customer if so and redirect to product screen logged in?
+
             customerSet newCustomer = new customerSet {
                 username = newUsername,
                 password = newPassword,
@@ -68,12 +68,6 @@ namespace prak5_service_lib {
                             Balance = c.balance
                         }).First();
             }
-        }
-
-        public bool Authorise(int id)
-        {
-            // TODO make authorise logic here...
-            return true;
         }
     }
 }
