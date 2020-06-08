@@ -74,11 +74,57 @@ namespace practicum_5.OrderServiceReference {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="MyServiceFault", Namespace="http://schemas.datacontract.org/2004/07/prak5_service_lib")]
+    [System.SerializableAttribute()]
+    public partial class MyServiceFault : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MessageField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Message {
+            get {
+                return this.MessageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MessageField, value) != true)) {
+                    this.MessageField = value;
+                    this.RaisePropertyChanged("Message");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="OrderServiceReference.IOrderService")]
     public interface IOrderService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderService/Order", ReplyAction="http://tempuri.org/IOrderService/OrderResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(practicum_5.OrderServiceReference.MyServiceFault), Action="http://tempuri.org/IOrderService/OrderMyServiceFaultFault", Name="MyServiceFault", Namespace="http://schemas.datacontract.org/2004/07/prak5_service_lib")]
         bool Order(int customerId, int storeId, practicum_5.OrderServiceReference.BuyingProduct[] products);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderService/Order", ReplyAction="http://tempuri.org/IOrderService/OrderResponse")]

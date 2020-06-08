@@ -16,5 +16,21 @@ namespace prak5_service_lib
 
         [OperationContract]
         customerSet loginCustomer(string username, string password);
+
+        [OperationContract]
+        Customer Find(int id);
+    }
+
+    [DataContract]
+    public class Customer
+    {
+        [DataMember]
+        public int Id { get; set; }
+
+        [DataMember]
+        public string UserName { get; set; }
+
+        [DataMember]
+        public double Balance { get; set; }
     }
 }

@@ -10,12 +10,13 @@ namespace prak5_service_lib
         public List<Product> All()
         {
             List<Product> productList = new List<Product>();
-            
+
             try
             {
                 using (prac5_dbEntities db = new prac5_dbEntities())
                 {
                     IQueryable<Product> products = from p in db.productSets
+                                                   where p.stock > 0
                                                    select new Product
                                                    {
                                                        Name = p.name,

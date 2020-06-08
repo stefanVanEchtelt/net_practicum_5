@@ -3,8 +3,8 @@
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import namespace="http://tempuri.org/" />
-      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/prak5_service_lib" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IOrderService_Order_InputMessage">
@@ -13,10 +13,14 @@
   <wsdl:message name="IOrderService_Order_OutputMessage">
     <wsdl:part name="parameters" element="tns:OrderResponse" />
   </wsdl:message>
+  <wsdl:message name="IOrderService_Order_MyServiceFaultFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/prak5_service_lib" name="detail" element="q1:MyServiceFault" />
+  </wsdl:message>
   <wsdl:portType name="IOrderService">
     <wsdl:operation name="Order">
       <wsdl:input wsaw:Action="http://tempuri.org/IOrderService/Order" message="tns:IOrderService_Order_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IOrderService/OrderResponse" message="tns:IOrderService_Order_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IOrderService/OrderMyServiceFaultFault" name="MyServiceFaultFault" message="tns:IOrderService_Order_MyServiceFaultFault_FaultMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IOrderService" type="tns:IOrderService">
@@ -29,6 +33,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="MyServiceFaultFault">
+        <soap:fault use="literal" name="MyServiceFaultFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="OrderService">

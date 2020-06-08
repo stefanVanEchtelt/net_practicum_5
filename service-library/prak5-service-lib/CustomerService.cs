@@ -31,5 +31,20 @@ namespace prak5_service_lib {
                 return customer;
             }
         }
+        
+        public Customer Find(int id)
+        {
+            using (prac5_dbEntities db = new prac5_dbEntities())
+            {
+                return (from c in db.customerSets
+                        where c.Id == id
+                        select new Customer
+                        {
+                            Id = c.Id,
+                            UserName = c.username,
+                            Balance = c.balance
+                        }).First();
+            }
+        }
     }
 }

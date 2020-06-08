@@ -12,6 +12,7 @@ namespace prak5_service_lib
     public interface IOrderService
     {
         [OperationContract]
+        [FaultContract(typeof(MyServiceFault))]
         bool Order(int customerId, int storeId, List<BuyingProduct> products);
     }
 
@@ -24,5 +25,19 @@ namespace prak5_service_lib
         [DataMember]
         public int Amount { get; set; }
 
+    }
+
+    [DataContract]
+    public class MyServiceFault
+    {
+        private string _message;
+
+        public MyServiceFault(string message)
+        {
+            _message = message;
+        }
+
+        [DataMember]
+        public string Message { get { return _message; } set { _message = value; } }
     }
 }
