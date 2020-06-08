@@ -12,10 +12,10 @@ namespace prak5_service_lib
     public interface ICustomerService
     {
         [OperationContract]
-        customerSet registerCustomer(string username, string password);
+        Customer registerCustomer(string username);
 
         [OperationContract]
-        customerSet loginCustomer(string username, string password);
+        Customer loginCustomer(string username, string password);
 
         [OperationContract]
         Customer Find(int id);
@@ -32,5 +32,8 @@ namespace prak5_service_lib
 
         [DataMember]
         public double Balance { get; set; }
+
+        [DataMember]
+        public string Password { get; set; }
     }
 }

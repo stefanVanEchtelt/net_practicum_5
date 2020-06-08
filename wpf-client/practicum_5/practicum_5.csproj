@@ -144,9 +144,6 @@
     <None Include="Connected Services\CustomerServiceReference\practicum_5.CustomerServiceReference.Customer.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\CustomerServiceReference\practicum_5.CustomerServiceReference.customerSet.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Connected Services\OrderLineServiceReference\practicum_5.OrderLineServiceReference.BoughtProduct.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

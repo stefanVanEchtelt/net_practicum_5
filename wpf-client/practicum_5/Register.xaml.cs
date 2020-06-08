@@ -12,29 +12,40 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using practicum_5.CustomerServiceReference;
 
 namespace practicum_5
 {
     /// <summary>
     /// Interaction logic for Register.xaml
     /// </summary>
-    public partial class Register : Window
-    {
+    public partial class Register : Window {
 
-        public Register()
-        {
+        public Register() {
             InitializeComponent();
         }
 
-        private void Register_Button_Click(object sender, RoutedEventArgs e)
-        {
+        private void Register_Button_Click(object sender, RoutedEventArgs e) {
+            CustomerServiceClient CustomerServiceClient = new CustomerServiceClient();
+            Customer newCustomer = CustomerServiceClient.registerCustomer(username.Text);
+
+            password.Text = newCustomer.Password;
+            MessageBox.Show("Vergeet niet het wachtwoord op te slaan!");
         }
 
-        private void To_Login(object sender, RoutedEventArgs e)
-        {   
-            Login LoginWindow= new Login();
-            LoginWindow.Show();
-            this.Close();
+        private void To_Login(object sender, RoutedEventArgs e) {
+
+            CustomerServiceClient CustomerServiceClient = new CustomerServiceClient();
+            Customer newCustomer = CustomerServiceClient.loginCustomer(username.Text, password.Text);
+            Console.WriteLine(newCustomer);
+            if (!newCustomer.Equals(null)) {
+                Login LoginWindow = new Login();
+                LoginWindow.Show();
+                this.Close();
+            } else {
+                MessageBox.Show("Foute login");
+            }
+
         }
     }
 }
