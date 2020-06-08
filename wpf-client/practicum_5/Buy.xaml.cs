@@ -140,10 +140,10 @@ namespace practicum_5
             catch (FaultException<MyServiceFault> exception)
             {
                 MessageBox.Show(exception.Detail.Message);
+                return;
             }
 
-
-                InventoryBox.Items.Clear();
+            InventoryBox.Items.Clear();
             this.LoadProducts();
 
             MessageBox.Show("U order is bevestigd.");
