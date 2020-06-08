@@ -145,7 +145,7 @@
             <End Role="storeSet" EntitySet="storeSets" />
             <End Role="productSet" EntitySet="productSets" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
         <EntityType Name="customerSet">
           <Key>
             <PropertyRef Name="Id" />
@@ -245,7 +245,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
