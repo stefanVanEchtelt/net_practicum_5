@@ -2,29 +2,46 @@ package app.controllers;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
+import app.domain.User;
+import app.services.CustomerServiceStub;
+import app.services.ICustomerService_LoginCustomer_CustomerFaultServiceFault_FaultMessage;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
+import java.rmi.RemoteException;
 
-public class LoginController implements Initializable {
+public class LoginController {
     @FXML private Button loginButton;
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-
-    }
+    @FXML private TextField usernameField;
+    @FXML private TextField passwordField;
 
     @FXML
     public void login() throws IOException {
-        // TODO create a customer....
+        try {
+            CustomerServiceStub stub = new CustomerServiceStub();
+            CustomerServiceStub.LoginCustomer loginCustomerCall = new CustomerServiceStub.LoginCustomer();
+            loginCustomerCall.setUsername(usernameField.getText());
+            loginCustomerCall.setPassword(passwordField.getText());
 
-        redirectToPage("buy");
+            CustomerServiceStub.LoginCustomerResponse loginCustomerResponse = stub.loginCustomer(loginCustomerCall);
+
+            if (loginCustomerResponse.getLoginCustomerResult() != null) {
+                User.userId = loginCustomerResponse.getLoginCustomerResult().getId();
+                redirectToPage("buy");
+            } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Foute login");
+                alert.setHeaderText("Foute login");
+                alert.showAndWait();
+            }
+        } catch (RemoteException | ICustomerService_LoginCustomer_CustomerFaultServiceFault_FaultMessage e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

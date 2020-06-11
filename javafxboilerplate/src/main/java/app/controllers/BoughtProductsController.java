@@ -10,6 +10,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import app.domain.User;
 import app.services.OrderLineServiceStub;
 import app.services.OrderLineServiceStub.BoughtProduct;
 import app.services.OrderLineServiceStub.PerProductByCustomer;
@@ -37,8 +38,8 @@ public class BoughtProductsController implements Initializable {
         try {
             OrderLineServiceStub stub = new OrderLineServiceStub();
             PerProductByCustomer perProductByCustomer = new PerProductByCustomer();
-            // todo set real id
-            perProductByCustomer.setCustomerId(1);
+
+            perProductByCustomer.setCustomerId(User.userId);
             PerProductByCustomerResponse response = stub.perProductByCustomer(perProductByCustomer);
 
             BoughtProduct[] boughtProducts = response.getPerProductByCustomerResult().getBoughtProduct();

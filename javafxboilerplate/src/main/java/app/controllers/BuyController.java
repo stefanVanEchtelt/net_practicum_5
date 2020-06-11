@@ -9,7 +9,10 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import app.domain.User;
+import app.services.CustomerServiceStub;
 import app.services.IOrderService_Order_OrderServiceFaultFault_FaultMessage;
 import app.services.OrderServiceStub;
 import app.services.ProductServiceStub;
@@ -21,14 +24,50 @@ import java.util.ResourceBundle;
 
 public class BuyController implements Initializable {
     @FXML private Button buyButton;
+    @FXML private Text remainingBalance;
     @FXML private ListView<String> catalogBox;
     @FXML private ListView<String> inventoryBox;
 
     private ProductServiceStub.Product[] products;
+    private double startingBalance = 0;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         this.loadItems();
+        this.setCustomerBal();
+    }
+
+    private void setCustomerBal() {
+        try {
+            CustomerServiceStub stub = new CustomerServiceStub();
+            CustomerServiceStub.Find findFunction = new CustomerServiceStub.Find();
+
+            findFunction.setId(User.userId);
+            CustomerServiceStub.FindResponse findResponse = stub.find(findFunction);
+            CustomerServiceStub.Customer customer = findResponse.getFindResult();
+
+            this.startingBalance = customer.getBalance();
+            remainingBalance.setText(String.valueOf(customer.getBalance()));
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void setRemainingBalance() {
+        double costs = 0;
+        for (String inventoryItem: inventoryBox.getItems()) {
+            String[] strings = inventoryItem.split(",");
+            int amount = Integer.parseInt(strings[1].trim());
+
+            int i;
+            for (i = 0; i < this.products.length; i++) {
+                if (this.products[i].getName().equals(strings[0])) {
+                    costs += this.products[i].getPrice() * amount;
+                }
+            }
+        }
+
+        remainingBalance.setText(String.valueOf(this.startingBalance - costs));
     }
 
     private void loadItems() {
@@ -44,9 +83,11 @@ public class BuyController implements Initializable {
             this.products = products;
 
             int i;
-            for (i = 0; i < products.length; i++) {
-                ProductServiceStub.Product product = res.getAllResult().getProduct()[i];
-                catalogBox.getItems().add(product.getName() + ": " + product.getPrice() + " Vooraad: " + product.getStock());
+            if (products != null) {
+                for (i = 0; i < products.length; i++) {
+                    ProductServiceStub.Product product = res.getAllResult().getProduct()[i];
+                    catalogBox.getItems().add(product.getName() + ": €" + product.getPrice() + " Vooraad: " + product.getStock());
+                }
             }
         } catch (RemoteException e) {
             e.printStackTrace();
@@ -69,6 +110,8 @@ public class BuyController implements Initializable {
                     inventoryBox.getItems().add(index, productName + ", " + String.valueOf(Integer.parseInt(strings[1].trim()) - 1));
                 }
             }
+
+            this.setRemainingBalance();
         }
     }
 
@@ -92,6 +135,8 @@ public class BuyController implements Initializable {
             if (!found) {
                 inventoryBox.getItems().add(productName + ", 1");
             }
+
+            this.setRemainingBalance();
         }
     }
 
@@ -116,22 +161,25 @@ public class BuyController implements Initializable {
             OrderServiceStub orderServiceStub = new OrderServiceStub();
             OrderServiceStub.Order orderCall = new OrderServiceStub.Order();
 
-            // TODO set real id
-            orderCall.setCustomerId(1);
+            orderCall.setCustomerId(User.userId);
             orderCall.setStoreId(1);
             orderCall.setProducts(buyingProducts);
 
             orderServiceStub.order(orderCall);
+
+            inventoryBox.getItems().clear();
+            this.setCustomerBal();
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Bedankt voor u aankoop");
+            alert.setHeaderText("Bedankt voor u aankoop");
+            alert.showAndWait();
         } catch (RemoteException e) {
             e.printStackTrace();
         } catch (IOrderService_Order_OrderServiceFaultFault_FaultMessage e) {
-
-            System.out.println("error");
-            System.out.println(e.getFaultMessage().toString());
-            // TODO show error message
-
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle(e.getFaultMessage().toString());
+            alert.setTitle(e.getFaultMessage().getOrderServiceFault().getMessage());
+            alert.setHeaderText(e.getFaultMessage().getOrderServiceFault().getMessage());
+            alert.showAndWait();
         }
     }
 
