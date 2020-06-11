@@ -9,7 +9,7 @@
    <children>
       <Text layoutX="92.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mijn profiel" wrappingWidth="82.767578125" />
       <Text layoutX="88.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Saldo: €" wrappingWidth="57.373046875" />
-      <Text layoutX="146.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TODO" />
+      <Text layoutX="146.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TODO" fx:id="balance"/>
       <Button layoutX="88.0" layoutY="191.0" mnemonicParsing="false" text="Mijn gekochten producten" onAction="#toBoughtProducts" />
       <Button layoutX="92.0" layoutY="478.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="68.0" text="Terug" onAction="#toBuy" fx:id="backButton" />
    </children>

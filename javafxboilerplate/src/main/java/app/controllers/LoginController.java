@@ -33,7 +33,7 @@ public class LoginController implements Initializable {
     }
 
     private void redirectToPage(String pageName) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../fxml/" + pageName + ".fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/" + pageName + ".fxml"));
         Parent registerPage = (Parent) fxmlLoader.load();
         Stage newStage = new Stage();
         newStage.setScene(new Scene(registerPage));
