@@ -13,8 +13,8 @@
       <Button layoutX="705.0" layoutY="30.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" text="Mijn profiel" onAction="#toMe"  />
       <Text layoutX="126.0" layoutY="519.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Overige saldo: €" wrappingWidth="87.0" />
       <Text layoutX="222.0" layoutY="519.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TODO " />
-      <ListView layoutX="91.0" layoutY="78.0" prefHeight="391.0" prefWidth="230.0" />
-      <ListView layoutX="561.0" layoutY="78.0" prefHeight="391.0" prefWidth="230.0" fx:id="itemBox" />
+      <ListView layoutX="91.0" layoutY="78.0" prefHeight="391.0" prefWidth="230.0" fx:id="inventoryBox" onMouseClicked="#removeFromInventory"/>
+      <ListView layoutX="561.0" layoutY="78.0" prefHeight="391.0" prefWidth="230.0" fx:id="catalogBox" onMouseClicked="#addToInventory"/>
       <Text layoutX="91.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Inventory" />
       <Text layoutX="561.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Items" wrappingWidth="36.08203125" />
    </children>

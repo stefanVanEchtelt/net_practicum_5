@@ -27,7 +27,7 @@ public class RegisterController implements Initializable {
 
     @FXML
     public void to_login() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../fxml/login.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
         Parent registerPage = (Parent) fxmlLoader.load();
         Stage newStage = new Stage();
         newStage.setScene(new Scene(registerPage));

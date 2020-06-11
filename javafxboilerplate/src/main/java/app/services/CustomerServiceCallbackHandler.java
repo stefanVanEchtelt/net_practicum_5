@@ -1,5 +1,5 @@
 /**
- * ProductServiceCallbackHandler.java
+ * CustomerServiceCallbackHandler.java
  *
  * This file was auto-generated from WSDL
  * by the Apache Axis2 version: 1.7.9  Built on : Nov 16, 2018 (12:05:37 GMT)
@@ -8,10 +8,10 @@ package app.services;
 
 
 /**
- *  ProductServiceCallbackHandler Callback class, Users can extend this class and implement
+ *  CustomerServiceCallbackHandler Callback class, Users can extend this class and implement
  *  their own receiveResult and receiveError methods.
  */
-public abstract class ProductServiceCallbackHandler {
+public abstract class CustomerServiceCallbackHandler {
     protected Object clientData;
 
     /**
@@ -20,14 +20,14 @@ public abstract class ProductServiceCallbackHandler {
      * @param clientData Object mechanism by which the user can pass in user data
      * that will be avilable at the time this callback is called.
      */
-    public ProductServiceCallbackHandler(Object clientData) {
+    public CustomerServiceCallbackHandler(Object clientData) {
         this.clientData = clientData;
     }
 
     /**
      * Please use this constructor if you don't want to set any clientData
      */
-    public ProductServiceCallbackHandler() {
+    public CustomerServiceCallbackHandler() {
         this.clientData = null;
     }
 
@@ -39,18 +39,33 @@ public abstract class ProductServiceCallbackHandler {
     }
 
     /**
-     * auto generated Axis2 call back method for all method
-     * override this method for handling normal response from all operation
+     * auto generated Axis2 call back method for registerCustomer method
+     * override this method for handling normal response from registerCustomer operation
      */
-    public void receiveResultall(
-        app.services.ProductServiceStub.AllResponse result) {
+    public void receiveResultregisterCustomer(
+        app.services.CustomerServiceStub.RegisterCustomerResponse result) {
     }
 
     /**
      * auto generated Axis2 Error handler
-     * override this method for handling error response from all operation
+     * override this method for handling error response from registerCustomer operation
      */
-    public void receiveErrorall(java.lang.Exception e) {
+    public void receiveErrorregisterCustomer(java.lang.Exception e) {
+    }
+
+    /**
+     * auto generated Axis2 call back method for loginCustomer method
+     * override this method for handling normal response from loginCustomer operation
+     */
+    public void receiveResultloginCustomer(
+        app.services.CustomerServiceStub.LoginCustomerResponse result) {
+    }
+
+    /**
+     * auto generated Axis2 Error handler
+     * override this method for handling error response from loginCustomer operation
+     */
+    public void receiveErrorloginCustomer(java.lang.Exception e) {
     }
 
     /**
@@ -58,7 +73,7 @@ public abstract class ProductServiceCallbackHandler {
      * override this method for handling normal response from find operation
      */
     public void receiveResultfind(
-        app.services.ProductServiceStub.FindResponse result) {
+        app.services.CustomerServiceStub.FindResponse result) {
     }
 
     /**
