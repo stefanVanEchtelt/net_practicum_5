@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane fx:controller="app.controllers.BuyController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button layoutX="704.0" layoutY="502.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" text="Kopen" onAction="#buy" fx:id="buyButton" />
+      <Button layoutX="589.0" layoutY="502.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" text="Refreshen" onAction="#refresh" />
+      <Button layoutX="705.0" layoutY="30.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" text="Mijn profiel" onAction="#toMe"  />
+      <Text layoutX="126.0" layoutY="519.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Overige saldo: €" wrappingWidth="87.0" />
+      <Text layoutX="222.0" layoutY="519.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TODO " />
+      <ListView layoutX="91.0" layoutY="78.0" prefHeight="391.0" prefWidth="230.0" />
+      <ListView layoutX="561.0" layoutY="78.0" prefHeight="391.0" prefWidth="230.0" fx:id="itemBox" />
+      <Text layoutX="91.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Inventory" />
+      <Text layoutX="561.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Items" wrappingWidth="36.08203125" />
+   </children>
+</AnchorPane>

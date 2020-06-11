@@ -30,7 +30,6 @@ namespace practicum_5
             CustomerServiceClient CustomerServiceClient = new CustomerServiceClient();
             try
             {
-                MessageBox.Show(UsernameField.Text);
                 Customer newCustomer = CustomerServiceClient.RegisterCustomer(UsernameField.Text);
                 password.Text = newCustomer.Password;
                 MessageBox.Show("Vergeet niet het wachtwoord op te slaan!");

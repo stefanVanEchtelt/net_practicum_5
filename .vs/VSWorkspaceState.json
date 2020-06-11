@@ -1,11 +1,16 @@
 {
   "ExpandedNodes": [
     "",
+    "\\javafx-client",
+    "\\javafx-client\\src",
+    "\\javafx-client\\src\\main",
     "\\practicum_5",
+    "\\service-library",
+    "\\service-library\\prak5-service-lib",
     "\\wpf-client",
     "\\wpf-client\\practicum_5",
     "\\wpf-client\\practicum_5\\Domain"
   ],
-  "SelectedNode": "\\wpf-client\\practicum_5\\Domain\\Class1.cs",
+  "SelectedNode": "\\service-library\\prak5-service-lib\\CustomerService.cs",
   "PreviewInSolutionExplorer": false
 }

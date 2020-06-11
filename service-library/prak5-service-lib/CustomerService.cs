@@ -76,7 +76,7 @@ namespace prak5_service_lib {
                             Id = c.Id,
                             UserName = c.username,
                             Balance = c.balance
-                        }).First();
+                        }).FirstOrDefault();
             }
         }
 
@@ -92,7 +92,7 @@ namespace prak5_service_lib {
                             UserName = c.username,
                             Balance = c.balance,
                             Password = c.password
-                        }).First();
+                        }).FirstOrDefault();
             }
         }
     }
