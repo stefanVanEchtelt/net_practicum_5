@@ -25,7 +25,6 @@ namespace prak5_service_lib {
                                 Password = c.password
                             }).First();
                 } catch (Exception err) {
-                    Console.WriteLine(err.Message);
                     return null;
                 }
 

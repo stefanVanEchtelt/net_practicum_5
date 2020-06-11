@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import main.domain.User;
 import main.services.CustomerServiceStub;
 import main.services.CustomerServiceStub.Find;
 
@@ -26,8 +27,7 @@ public class MeController implements Initializable {
             CustomerServiceStub stub = new CustomerServiceStub();
             Find findFunction = new Find();
 
-            // TODO use real id
-            findFunction.setId(1);
+            findFunction.setId(User.userId);
             CustomerServiceStub.FindResponse findResponse = stub.find(findFunction);
             CustomerServiceStub.Customer customer = findResponse.getFindResult();
 
