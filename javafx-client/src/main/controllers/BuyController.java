@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -14,10 +15,36 @@ import java.util.ResourceBundle;
 
 public class BuyController implements Initializable {
     @FXML private Button buyButton;
+    @FXML private ListView<String> itemBox;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        this.loadItems();
+    }
 
+    private void loadItems() {
+        // TODO make refresh of products
+        itemBox.getItems().clear();
+
+        itemBox.getItems().add("Item 1");
+        itemBox.getItems().add("Item 2");
+
+//        try {
+//            ProductServiceStub stub = new ProductServiceStub();
+//            ProductServiceStub.All allFunction = new ProductServiceStub.All();
+//            ProductServiceStub.AllResponse res = stub.all(allFunction);
+//
+//            ProductServiceStub.Product[] products = res.getAllResult().getProduct();
+//
+//            int i;
+//            for (i = 0; i < products.length; i++) {
+//                ProductServiceStub.Product product = res.getAllResult().getProduct()[i];
+//                itemBox.getItems().add(product.getName());
+//                System.out.println(product.getName());
+//            }
+//        } catch (RemoteException e) {
+//            e.printStackTrace();
+//        }
     }
 
     @FXML
@@ -27,7 +54,7 @@ public class BuyController implements Initializable {
 
     @FXML
     public void refresh() {
-        // TODO make refresh of products
+        this.loadItems();
     }
 
     @FXML
